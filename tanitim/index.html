@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zita - Dijital Dönüşüm Platformu</title>
+    <meta name="description" content="Zita ile firmanızın dijital dönüşümünü tek platformdan yönetin. Ziyaretçi takibi, araç takibi ve daha fazlası.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="varliklar/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-shield-check me-2"></i>Zita
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ana-sayfa">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ozellikler">Özellikler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#fiyatlandirma">Fiyatlandırma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#iletisim">İletişim</a>
+                    </li>
+                </ul>
+                <div class="navbar-nav">
+                    <a class="btn btn-light me-2" href="#kayit">Kayıt Ol</a>
+                    <a class="btn btn-outline-light" href="#giris">Giriş Yap</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="ana-sayfa" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-3 fw-bold text-white mb-4">
+                            Zamanınızı Kaybetmeyi Bırakın, 
+                            <span class="text-gradient">Takip Etmeye</span> Başlayın
+                        </h1>
+                        <p class="lead text-white-50 mb-4">
+                            Verimliliğinizi 10 kat artırın - Zita ile #1 ziyaretçi ve araç takip çözümü.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#ozellikler" class="btn btn-primary btn-lg me-3">
+                                <i class="bi bi-play-circle me-2"></i>Hemen Başla
+                            </a>
+                            <a href="#demo" class="btn btn-outline-light btn-lg">
+                                <i class="bi bi-eye me-2"></i>Demo İzle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="dashboard-preview">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span class="dot bg-danger"></span>
+                                    <span class="dot bg-warning"></span>
+                                    <span class="dot bg-success"></span>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-sidebar">
+                                    <div class="sidebar-item active">
+                                        <i class="bi bi-house-door"></i>
+                                        <span>Dashboard</span>
+                                    </div>
+                                    <div class="sidebar-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>Ziyaretçiler</span>
+                                    </div>
+                                    <div class="sidebar-item">
+                                        <i class="bi bi-truck"></i>
+                                        <span>Araçlar</span>
+                                    </div>
+                                    <div class="sidebar-item">
+                                        <i class="bi bi-graph-up"></i>
+                                        <span>Raporlar</span>
+                                    </div>
+                                </div>
+                                <div class="preview-main">
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon bg-primary">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <h3>1,247</h3>
+                                                <p>Ziyaretçi</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon bg-success">
+                                                <i class="bi bi-truck"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <h3>23</h3>
+                                                <p>Araç</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon bg-warning">
+                                                <i class="bi bi-clock"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <h3>98%</h3>
+                                                <p>Verimlilik</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <p class="text-muted mb-4">Güvenilen 1000+ şirket tarafından kullanılıyor</p>
+                    <div class="trust-logos">
+                        <div class="trust-logo">Microsoft</div>
+                        <div class="trust-logo">Google</div>
+                        <div class="trust-logo">Amazon</div>
+                        <div class="trust-logo">Netflix</div>
+                        <div class="trust-logo">Spotify</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="ozellikler" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary mb-3">Zita İş Gününüzde Netlik ve Kontrol Sağlamanıza Yardımcı Olur</h2>
+                    <p class="lead text-muted">
+                        Ziyaretçilerinizi manuel olarak takip edin, otomatik olarak aktif uygulamalara göre
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-primary">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Ziyaretçi Takibi</h4>
+                        <p class="text-muted">
+                            QR kod sistemi ile ziyaretçilerinizi kayıt altına alın, 
+                            giriş-çıkış saatlerini takip edin ve detaylı raporlar oluşturun.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>QR kod entegrasyonu</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Otomatik kayıt sistemi</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Detaylı raporlama</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-success">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Araç Takibi</h4>
+                        <p class="text-muted">
+                            GPS entegrasyonu ile araçlarınızın konumunu gerçek zamanlı takip edin, 
+                            rota optimizasyonu yapın ve yakıt tüketimini kontrol edin.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Gerçek zamanlı takip</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Rota optimizasyonu</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Yakıt analizi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-warning">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Akıllı Raporlama</h4>
+                        <p class="text-muted">
+                            Gelişmiş analitik araçları ile işletmenizin performansını ölçün, 
+                            trendleri analiz edin ve veri odaklı kararlar alın.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Görsel raporlar</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Trend analizi</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Özelleştirilebilir dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-info">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Güvenlik</h4>
+                        <p class="text-muted">
+                            Endüstri standardında güvenlik protokolleri ile verilerinizi koruyun, 
+                            kullanıcı yetkilendirmelerini yönetin ve erişim kontrolü sağlayın.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>SSL şifreleme</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Rol tabanlı erişim</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Veri yedekleme</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-danger">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Mobil Uyumlu</h4>
+                        <p class="text-muted">
+                            Responsive tasarım ile her cihazdan erişim sağlayın, 
+                            mobil uygulama deneyimi yaşayın ve her yerden yönetim yapın.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Responsive tasarım</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Mobil optimizasyon</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Offline çalışma</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon bg-secondary">
+                            <i class="bi bi-puzzle"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Modüler Yapı</h4>
+                        <p class="text-muted">
+                            İhtiyacınıza göre modülleri ekleyin veya çıkarın, 
+                            özelleştirilebilir arayüzler oluşturun ve sürekli gelişen sistem.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Esnek modül sistemi</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Özelleştirilebilir arayüz</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Sürekli güncelleme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="fiyatlandirma" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary mb-3">Size Uygun Planı Seçin</h2>
+                    <p class="lead text-muted">
+                        İhtiyacınıza göre esnek fiyatlandırma seçenekleri
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4 class="fw-bold">Başlangıç</h4>
+                            <div class="price">
+                                <span class="currency">₺</span>
+                                <span class="amount">299</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-2"></i>50 ziyaretçi kaydı</li>
+                                <li><i class="bi bi-check text-success me-2"></i>5 araç takibi</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Temel raporlar</li>
+                                <li><i class="bi bi-check text-success me-2"></i>E-posta desteği</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Mobil erişim</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#" class="btn btn-outline-primary w-100">Planı Seç</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Popüler</div>
+                        <div class="pricing-header">
+                            <h4 class="fw-bold">Profesyonel</h4>
+                            <div class="price">
+                                <span class="currency">₺</span>
+                                <span class="amount">599</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-2"></i>500 ziyaretçi kaydı</li>
+                                <li><i class="bi bi-check text-success me-2"></i>25 araç takibi</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Gelişmiş raporlar</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Telefon desteği</li>
+                                <li><i class="bi bi-check text-success me-2"></i>API entegrasyonu</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Özel modüller</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#" class="btn btn-primary w-100">Planı Seç</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4 class="fw-bold">Kurumsal</h4>
+                            <div class="price">
+                                <span class="currency">₺</span>
+                                <span class="amount">1,299</span>
+                                <span class="period">/ay</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check text-success me-2"></i>Sınırsız ziyaretçi</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Sınırsız araç</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Özel raporlar</li>
+                                <li><i class="bi bi-check text-success me-2"></i>7/24 destek</li>
+                                <li><i class="bi bi-check text-success me-2"></i>Özel geliştirme</li>
+                                <li><i class="bi bi-check text-success me-2"></i>On-premise seçeneği</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-footer">
+                            <a href="#" class="btn btn-outline-primary w-100">Planı Seç</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold text-white mb-3">Zamanınızı Bugün Kontrol Altına Alın!</h2>
+                    <p class="lead text-white-50 mb-4">Zita Zaman Takip Uygulamamız ile verimliliğinizi 10 kat artırın.</p>
+                    <a href="#fiyatlandirma" class="btn btn-primary btn-lg">
+                        <i class="bi bi-play-circle me-2"></i>Ücretsiz Deneyin
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cta-image">
+                        <div class="dashboard-preview">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span class="dot bg-danger"></span>
+                                    <span class="dot bg-warning"></span>
+                                    <span class="dot bg-success"></span>
+                                </div>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-sidebar">
+                                    <div class="sidebar-item active">
+                                        <i class="bi bi-house-door"></i>
+                                        <span>Dashboard</span>
+                                    </div>
+                                    <div class="sidebar-item">
+                                        <i class="bi bi-people"></i>
+                                        <span>Ziyaretçiler</span>
+                                    </div>
+                                    <div class="sidebar-item">
+                                        <i class="bi bi-truck"></i>
+                                        <span>Araçlar</span>
+                                    </div>
+                                </div>
+                                <div class="preview-main">
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-icon bg-primary">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <h3>1,247</h3>
+                                                <p>Ziyaretçi</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-icon bg-success">
+                                                <i class="bi bi-truck"></i>
+                                            </div>
+                                            <div class="stat-content">
+                                                <h3>23</h3>
+                                                <p>Araç</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary mb-3">İletişime Geçin</h2>
+                    <p class="lead text-muted">
+                        Sorularınız için bizimle iletişime geçin
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="ad" class="form-label">Ad Soyad</label>
+                                    <input type="text" class="form-control" id="ad" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="konu" class="form-label">Konu</label>
+                                    <input type="text" class="form-control" id="konu" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mesaj" class="form-label">Mesaj</label>
+                                    <textarea class="form-control" id="mesaj" rows="5" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-send me-2"></i>Mesaj Gönder
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-shield-check me-2"></i>Zita
+                    </h5>
+                    <p class="text-muted">
+                        Dijital dönüşümünüzü tek platformdan yönetin. 
+                        Modern, güvenli ve esnek çözümler.
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Ürün</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#ozellikler" class="text-muted text-decoration-none">Özellikler</a></li>
+                        <li><a href="#fiyatlandirma" class="text-muted text-decoration-none">Fiyatlandırma</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">API</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Entegrasyonlar</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Şirket</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Hakkımızda</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Kariyer</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Basın</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Destek</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Yardım Merkezi</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Dokümantasyon</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Topluluk</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Durum</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Yasal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Gizlilik</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Şartlar</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Çerezler</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Lisans</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 Zita. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-muted me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-muted"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="varliklar/js/main.js"></script>
+</body>
+</html>
