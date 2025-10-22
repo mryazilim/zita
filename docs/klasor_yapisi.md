@@ -12,7 +12,7 @@ zita/
 │   ├── api/                 # API dosyaları
 │   ├── statik/              # CSS, JS, resimler
 │   └── veritabani/          # Veritabanı dosyaları
-├── yonetim-paneli/           # Yönetim paneli sistemi
+├── yonetim/                   # Yönetim paneli sistemi
 │   ├── sayfalar/            # HTML sayfaları
 │   ├── kontrolculer/        # PHP kontrolcüler
 │   ├── modeller/            # PHP modeller
@@ -80,7 +80,7 @@ tanitim/
 
 ### **Yönetim Paneli Sistemi:**
 ```
-yonetim-paneli/
+yonetim/
 ├── sayfalar/                # HTML sayfaları
 │   ├── giris.html           # Giriş sayfası
 │   ├── dashboard.html       # Ana panel
@@ -200,9 +200,10 @@ ortak/
 ## 📝 Güncelleme Notları
 
 - **v25.1.0.0** - İlk klasör yapısı oluşturuldu
+- **v25.1.1.0** - yonetim-paneli klasörü yonetim olarak güncellendi
 - **Tarih:** 2025-01-13
 - **Durum:** Planlama aşamasında
-- **Sonraki adım:** Klasör yapısının oluşturulması
+- **Sonraki adım:** Alt klasörlerin oluşturulması
 
 ## 🔄 Güncelleme Süreci
 
