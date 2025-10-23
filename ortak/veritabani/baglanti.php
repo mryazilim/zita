@@ -14,8 +14,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Veritabanı sınıfını dahil et
-require_once __DIR__ . '/../../ortak/kutuphaneler/veritabani_sinifi.php';
+// nsql kütüphanesini dahil et
+require_once __DIR__ . '/../../ortak/kutuphaneler/nsql/nsql.php';
 
 /**
  * Veritabanı bağlantı ayarları
@@ -59,8 +59,8 @@ class VeritabaniBaglanti {
      */
     private function __construct() {
         try {
-            // Veritabanı sınıfını başlat
-            $this->nsql = new VeritabaniSinifi(
+            // nsql kütüphanesini başlat
+            $this->nsql = new nsql\database\nsql(
                 VeritabaniAyarlari::DB_HOST,
                 VeritabaniAyarlari::DB_NAME,
                 VeritabaniAyarlari::DB_USER,
@@ -68,10 +68,16 @@ class VeritabaniBaglanti {
                 VeritabaniAyarlari::DB_CHARSET
             );
             
+            // nsql ayarlarını yapılandır
+            $this->nsql->debug_mode = VeritabaniAyarlari::DEBUG_MODE;
+            $this->nsql->query_cache_enabled = VeritabaniAyarlari::QUERY_CACHE_ENABLED;
+            $this->nsql->statement_cache_limit = VeritabaniAyarlari::STATEMENT_CACHE_LIMIT;
+            $this->nsql->query_cache_timeout = VeritabaniAyarlari::QUERY_CACHE_TIMEOUT;
+            $this->nsql->auto_adjust_chunk_size = VeritabaniAyarlari::AUTO_ADJUST_CHUNK_SIZE;
+            $this->nsql->default_chunk_size = VeritabaniAyarlari::DEFAULT_CHUNK_SIZE;
+            
             // Bağlantıyı test et
-            if (!$this->nsql->test()) {
-                throw new Exception("Veritabanı bağlantı testi başarısız");
-            }
+            $this->nsql->ensure_connection();
             
         } catch (Exception $e) {
             // Hata durumunda log kaydet
@@ -91,7 +97,12 @@ class VeritabaniBaglanti {
      * Bağlantıyı test et
      */
     public function testBaglanti() {
-        return $this->nsql->test();
+        try {
+            $result = $this->nsql->get_row("SELECT 1 as test");
+            return $result !== false;
+        } catch (Exception $e) {
+            return false;
+        }
     }
     
     /**
@@ -107,7 +118,7 @@ class VeritabaniBaglanti {
 /**
  * Global veritabanı bağlantı fonksiyonu
  * 
- * @return VeritabaniSinifi
+ * @return nsql\database\nsql
  */
 function veritabani_baglanti() {
     return VeritabaniBaglanti::getInstance()->getNsql();

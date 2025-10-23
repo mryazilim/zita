@@ -14,8 +14,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Veritabanı sınıfını dahil et
-require_once __DIR__ . '/../../ortak/kutuphaneler/veritabani_sinifi.php';
+// nsql kütüphanesini dahil et
+require_once __DIR__ . '/../../ortak/kutuphaneler/nsql/nsql.php';
 
 /**
  * Veritabanı kurulum sınıfı
@@ -142,8 +142,8 @@ class VeritabaniKurulum {
      */
     public function kurulumuTestEt() {
         try {
-            // Veritabanı sınıfı ile bağlantıyı test et
-            $db = new VeritabaniSinifi(
+            // nsql kütüphanesi ile bağlantıyı test et
+            $db = new nsql\database\nsql(
                 $this->host,
                 $this->dbname,
                 $this->username,

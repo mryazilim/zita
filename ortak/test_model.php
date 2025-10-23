@@ -9,7 +9,7 @@
  * @date 2025-01-13
  */
 
-require_once __DIR__ . '/kutuphaneler/veritabani_sinifi.php';
+require_once __DIR__ . '/veritabani/baglanti.php';
 require_once __DIR__ . '/modeller/il_model.php';
 require_once __DIR__ . '/modeller/ilce_model.php';
 require_once __DIR__ . '/modeller/sektor_model.php';

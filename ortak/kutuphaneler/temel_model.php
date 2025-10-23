@@ -10,7 +10,7 @@
  * @date 2025-01-13
  */
 
-require_once __DIR__ . '/veritabani_sinifi.php';
+require_once __DIR__ . '/../veritabani/baglanti.php';
 
 abstract class TemelModel {
     protected $db;
@@ -20,7 +20,7 @@ abstract class TemelModel {
     protected $guvenli_alanlar = [];
     
     public function __construct() {
-        $this->db = new VeritabaniSinifi();
+        $this->db = veritabani_baglanti();
     }
     
     /**
