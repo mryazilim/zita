@@ -6,7 +6,7 @@ Dijital dönüşüm platformu - Firma ziyaretçi takibi, araç yönetimi ve işl
 
 ```
 zita/
-├── giris.html              # Giriş sayfası
+├── giris.php               # Giriş sayfası
 ├── varliklar/
 │   ├── css/
 │   │   └── giris.css       # Giriş sayfası stilleri
@@ -112,7 +112,7 @@ POST zita/api/token-dogrula.php
 ### Giriş Sayfası
 ```html
 <!-- Giriş sayfasını aç -->
-<a href="zita/giris.html">Giriş Yap</a>
+<a href="zita/giris.php">Giriş Yap</a>
 ```
 
 ### Tema Entegrasyonu

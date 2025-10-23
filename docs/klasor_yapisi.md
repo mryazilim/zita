@@ -82,7 +82,7 @@ tanitim/
 ```
 yonetim/
 ├── sayfalar/                # HTML sayfaları
-│   ├── giris.html           # Giriş sayfası
+│   ├── giris.php            # Giriş sayfası
 │   ├── dashboard.html       # Ana panel
 │   ├── sayfa-yonetimi.html  # Sayfa yönetimi
 │   ├── ozellik-yonetimi.html # Özellik yönetimi
@@ -126,7 +126,7 @@ yonetim/
 ```
 zita-proje/
 ├── sayfalar/                # HTML sayfaları
-│   ├── giris.html           # Firma girişi
+│   ├── giris.php            # Firma girişi
 │   ├── dashboard.html       # Ana panel
 │   ├── ziyaretci-takibi.html # Ziyaretçi takibi
 │   └── arac-takibi.html     # Araç takibi

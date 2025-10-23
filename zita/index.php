@@ -4,7 +4,7 @@ session_start();
 
 // Session yoksa giriş sayfasına yönlendir
 if (!isset($_SESSION['kullanici_id']) || !isset($_SESSION['firma_id'])) {
-    header('Location: giris.html');
+    header('Location: giris.php');
     exit();
 }
 ?>
