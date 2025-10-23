@@ -685,11 +685,11 @@ if (!isset($_SESSION['csrf_token'])) {
                 
             <!-- Page Header -->
             <div class="page-header-breadcrumb d-md-flex d-block align-items-center justify-content-between ">
-                <h4 class="fw-medium mb-0">Dashboard</h4>
+                <h4 class="fw-medium mb-0">Kontrol Paneli</h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0);" class="text-white-50">Dashboards</a>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);" class="text-white-50">Ana Sayfa</a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Sales</li>
+                    <li class="breadcrumb-item active" aria-current="page">Genel Bakış</li>
                 </ol>
             </div>
             <!-- Page Header Close -->
@@ -707,16 +707,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div>
-                                                    <p class="fw-medium mb-1 text-muted">Total Sales</p>
-                                                    <h3 class="mb-0">$18,645</h3>
+                                                    <p class="fw-medium mb-1 text-muted">Toplam Ziyaretçi</p>
+                                                    <h3 class="mb-0">1,245</h3>
                                                 </div>
                                                 <div class="avatar avatar-md br-4 bg-primary-transparent ms-auto">
-                                                    <i class="bi bi-cart-check fs-20"></i>
+                                                    <i class="bi bi-people fs-20"></i>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-2">
-                                                <span class="badge bg-primary-transparent rounded-pill">+24% <i class="fe fe-arrow-down"></i></span>
-                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">view more</a>
+                                                <span class="badge bg-primary-transparent rounded-pill">+24% <i class="fe fe-arrow-up"></i></span>
+                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">detaylar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -726,16 +726,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div>
-                                                    <p class="fw-medium mb-1 text-muted">Total Revenue</p>
-                                                    <h3 class="mb-0">$34,876</h3>
+                                                    <p class="fw-medium mb-1 text-muted">Aktif Araç</p>
+                                                    <h3 class="mb-0">89</h3>
                                                 </div>
                                                 <div class="avatar avatar-md br-4 bg-secondary-transparent ms-auto">
-                                                    <i class="bi bi-archive fs-20"></i>
+                                                    <i class="bi bi-car-front fs-20"></i>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-2">
-                                                <span class="badge bg-success-transparent rounded-pill">+0.26% <i class="fe fe-arrow-down"></i></span>
-                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">view more</a>
+                                                <span class="badge bg-success-transparent rounded-pill">+12% <i class="fe fe-arrow-up"></i></span>
+                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">detaylar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -745,16 +745,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div>
-                                                    <p class="fw-medium text-muted mb-1">Total Products</p>
-                                                    <h3 class="mb-0">26,231</h3>
+                                                    <p class="fw-medium text-muted mb-1">Bugünkü Ziyaret</p>
+                                                    <h3 class="mb-0">156</h3>
                                                 </div>
                                                 <div class="avatar avatar-md br-4 bg-info-transparent ms-auto">
-                                                    <i class="bi bi-handbag fs-20"></i>
+                                                    <i class="bi bi-calendar-day fs-20"></i>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-2">
-                                                <span class="badge bg-danger-transparent rounded-pill">+06% <i class="fe fe-arrow-down"></i></span>
-                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">view more</a>
+                                                <span class="badge bg-success-transparent rounded-pill">+18% <i class="fe fe-arrow-up"></i></span>
+                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">detaylar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -764,16 +764,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div>
-                                                    <p class="fw-medium mb-1 text-muted">Total Expenses</p>
-                                                    <h3 class="mb-0">$73,579</h3>
+                                                    <p class="fw-medium mb-1 text-muted">Araç Kilometresi</p>
+                                                    <h3 class="mb-0">45,678</h3>
                                                 </div>
                                                 <div class="avatar avatar-md br-4 bg-warning-transparent ms-auto">
-                                                    <i class="bi bi-currency-dollar fs-20"></i>
+                                                    <i class="bi bi-speedometer2 fs-20"></i>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-2">
-                                                <span class="badge bg-success-transparent rounded-pill">+10% <i class="fe fe-arrow-up"></i></span>
-                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">view more</a>
+                                                <span class="badge bg-success-transparent rounded-pill">+8% <i class="fe fe-arrow-up"></i></span>
+                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">detaylar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -783,16 +783,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                         <div class="card-body">
                                             <div class="d-flex">
                                                 <div>
-                                                    <p class="fw-medium text-muted mb-1">Active Subscribers</p>
-                                                    <h3 class="mb-0">1,468</h3>
+                                                    <p class="fw-medium text-muted mb-1">Aktif Kullanıcı</p>
+                                                    <h3 class="mb-0">23</h3>
                                                 </div>
                                                 <div class="avatar avatar-md br-4 bg-danger-transparent ms-auto">
-                                                    <i class="bi bi-bell fs-20"></i>
+                                                    <i class="bi bi-person-check fs-20"></i>
                                                 </div>
                                             </div>
                                             <div class="d-flex mt-2">
-                                                <span class="badge bg-danger-transparent rounded-pill">+16% <i class="fe fe-arrow-down"></i></span>
-                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">view more</a>
+                                                <span class="badge bg-success-transparent rounded-pill">+5% <i class="fe fe-arrow-up"></i></span>
+                                                <a href="javascript:void(0);" class="text-muted fs-11 ms-auto text-decoration-underline mt-auto">detaylar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -1009,14 +1009,14 @@ if (!isset($_SESSION['csrf_token'])) {
                                 <div class="col-xxl-12 col-xl-12">
                                     <div class="card custom-card">
                                         <div class="card-header  justify-content-between">
-                                            <div class="card-title">Sales Statistics</div>
+                                            <div class="card-title">Ziyaretçi İstatistikleri</div>
                                             <div class="dropdown d-flex">
-                                                <a href="javascript:void(0);" class="btn btn-sm btn-primary-light btn-wave waves-effect waves-light d-flex align-items-center me-2"><i class="ri-filter-3-line me-1"></i>Filter</a>
-                                                <a href="javascript:void(0);" class="btn dropdown-toggle btn-sm btn-wave waves-effect waves-light btn-primary d-flex align-items-center" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-calendar-2-line me-1"></i>This Week</a>
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-primary-light btn-wave waves-effect waves-light d-flex align-items-center me-2"><i class="ri-filter-3-line me-1"></i>Filtrele</a>
+                                                <a href="javascript:void(0);" class="btn dropdown-toggle btn-sm btn-wave waves-effect waves-light btn-primary d-flex align-items-center" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-calendar-2-line me-1"></i>Bu Hafta</a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Last Month</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Last Week</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Share Report</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0);">Geçen Ay</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0);">Geçen Hafta</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0);">Raporu Paylaş</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1029,16 +1029,16 @@ if (!isset($_SESSION['csrf_token'])) {
                                     <div class="card custom-card overflow-hidden">
                                         <div class="card-header justify-content-between">
                                             <div class="card-title">
-                                                Top Selling Products
+                                                Son Ziyaretçiler
                                             </div>
                                             <div class="dropdown">
                                                 <a aria-label="anchor" href="javascript:void(0);" class="btn btn-outline-light btn-icons btn-sm text-muted my-1" data-bs-toggle="dropdown">
                                                     <i class="fe fe-more-vertical"></i>
                                                 </a>
                                                 <ul class="dropdown-menu mb-0">
-                                                    <li class="border-bottom"><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
-                                                    <li class="border-bottom"><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+                                                    <li class="border-bottom"><a class="dropdown-item" href="javascript:void(0);">İşlem</a></li>
+                                                    <li class="border-bottom"><a class="dropdown-item" href="javascript:void(0);">Başka İşlem</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0);">Diğer Seçenekler</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1049,11 +1049,11 @@ if (!isset($_SESSION['csrf_token'])) {
                                                         <table class="table text-nowrap table-hover rounded-3 overflow-hidden">
                                                             <thead>
                                                                 <tr>
-                                                                    <th scope="row" class="ps-4">Product Name</th>
-                                                                    <th scope="row">stock</th>
-                                                                    <th scope="row">Price</th>
-                                                                    <th scope="row">Sold</th>
-                                                                    <th scope="row">Action</th>
+                                                                    <th scope="row" class="ps-4">Ziyaretçi Adı</th>
+                                                                    <th scope="row">Durum</th>
+                                                                    <th scope="row">Giriş Saati</th>
+                                                                    <th scope="row">Çıkış Saati</th>
+                                                                    <th scope="row">İşlem</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -1061,25 +1061,25 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                     <td class=" ps-4">
                                                                         <div class="d-flex align-items-center">
                                                                         <div class="avatar avatar-sm me-2">
-                                                                            <img src="varliklar/images/ecommerce/jpg/6.jpg" alt="avatar" class="rounded-1">
+                                                                            <img src="varliklar/images/faces/9.jpg" alt="avatar" class="rounded-1">
                                                                         </div>
-                                                                        <a href="product-details.html">Sports Shoes For Men</a>
+                                                                        <a href="javascript:void(0);">Ahmet Yılmaz</a>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <div class="mt-sm-1 d-block">
                                                                             <span
-                                                                                class="badge bg-success-transparent text-success">In Stock</span>
+                                                                                class="badge bg-success-transparent text-success">İçeride</span>
                                                                         </div>
                                                                     </td>
-                                                                    <td> $73.800</td>
-                                                                    <td>1,534</td>
+                                                                    <td> 09:30</td>
+                                                                    <td> - </td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1091,23 +1091,23 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                         <div class="avatar avatar-sm me-2">
                                                                             <img src="varliklar/images/ecommerce/jpg/5.jpg" alt="avatar" class="rounded-1">
                                                                         </div>
-                                                                        <a href="product-details.html">Beautiful flower Frame</a>
+                                                                        <a href="javascript:void(0);">Mehmet Demir</a>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <div class="mt-sm-1 d-block">
                                                                             <span
-                                                                                class="badge bg-info-transparent text-info">Few-left</span>
+                                                                                class="badge bg-danger-transparent text-danger">Çıktı</span>
                                                                         </div>
                                                                     </td>
-                                                                    <td> $73.800</td>
-                                                                    <td>4,987</td>
+                                                                    <td> 08:15</td>
+                                                                    <td> 17:30</td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1132,10 +1132,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                     <td>87,875</td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1160,10 +1160,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                     <td>98,876</td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1188,10 +1188,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                     <td>87,875</td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1216,10 +1216,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                                     <td>1,987</td>
                                                                     <td>
                                                                         <div class="g-2">
-                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                                 <span class="ri-pencil-line fs-14"></span>
                                                                             </a>
-                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                                             </a>
                                                                         </div>
@@ -1588,10 +1588,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     </td>
                                                     <td>
                                                         <div class="g-2">
-                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                 <span class="ri-pencil-line fs-14"></span>
                                                             </a>
-                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                             </a>
                                                         </div>
@@ -1621,10 +1621,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     </td>
                                                     <td>
                                                         <div class="g-2">
-                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                 <span class="ri-pencil-line fs-14"></span>
                                                             </a>
-                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                             </a>
                                                         </div>
@@ -1654,10 +1654,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     </td>
                                                     <td>
                                                         <div class="g-2">
-                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                 <span class="ri-pencil-line fs-14"></span>
                                                             </a>
-                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                             </a>
                                                         </div>
@@ -1687,10 +1687,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     </td>
                                                     <td>
                                                         <div class="g-2">
-                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                 <span class="ri-pencil-line fs-14"></span>
                                                             </a>
-                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                             </a>
                                                         </div>
@@ -1720,10 +1720,10 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     </td>
                                                     <td>
                                                         <div class="g-2">
-                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Edit">
+                                                            <a aria-label="anchor" class="btn  btn-primary-light btn-sm" data-bs-toggle="tooltip" data-bs-original-title="Düzenle">
                                                                 <span class="ri-pencil-line fs-14"></span>
                                                             </a>
-                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                            <a aria-label="anchor" class="btn btn-danger-light btn-sm ms-2" data-bs-toggle="tooltip" data-bs-original-title="Sil">
                                                                 <span class="ri-delete-bin-7-line fs-14"></span>
                                                             </a>
                                                         </div>
