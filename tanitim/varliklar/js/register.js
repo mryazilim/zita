@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Form gönderimi
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
         event.preventDefault();
         
         if (!validateCurrentStep()) {
@@ -502,26 +502,45 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Kayıt Oluşturuluyor...';
         }
         
-        // Form verilerini hazırla
-        const data = {};
-        for (let [key, value] of formData.entries()) {
-            data[key] = value;
-        }
-        
-        // AJAX ile gönder (şimdilik simüle et)
-        setTimeout(() => {
-            showSuccess('Kayıt başarıyla oluşturuldu! Yönlendiriliyorsunuz...');
+        try {
+            // Form verilerini hazırla
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
             
+            // API'ye gönder
+            const response = await fetch('api/firma_kayit.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showSuccess('Kayıt başarıyla oluşturuldu! Yönlendiriliyorsunuz...');
+                
+                // 3 saniye sonra yönlendir
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            } else {
+                throw new Error(result.message || 'Kayıt oluşturulamadı');
+            }
+            
+        } catch (error) {
+            console.error('Kayıt hatası:', error);
+            showError('Kayıt oluşturulurken hata oluştu: ' + error.message);
+        } finally {
+            // Loading'i kaldır
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = 'Kayıt Ol';
             }
-            
-            // 3 saniye sonra yönlendir
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 3000);
-        }, 2000);
+        }
     }
 
     // Event listener'ları ayarla
