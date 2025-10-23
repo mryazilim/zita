@@ -37,6 +37,14 @@ try {
     $il_sayisi = $db->get_row("SELECT COUNT(*) as toplam FROM iller");
     echo "<p>📈 İl sayısı: " . $il_sayisi['toplam'] . "</p>";
     
+    // nsql v1.4 debug bilgileri
+    echo "<h2>🔍 nsql v1.4 Debug Bilgileri</h2>";
+    $debug_info = $db->get_debug_info();
+    echo "<p>🔍 Toplam sorgu sayısı: " . $debug_info['total_queries'] . "</p>";
+    echo "<p>🔍 Cache hit sayısı: " . $debug_info['cache_hits'] . "</p>";
+    echo "<p>🔍 Cache miss sayısı: " . $debug_info['cache_misses'] . "</p>";
+    echo "<p>🔍 Ortalama sorgu süresi: " . round($debug_info['avg_query_time'], 4) . " ms</p>";
+    
 } catch (Exception $e) {
     echo "<p>❌ Hata: " . $e->getMessage() . "</p>";
     echo "<pre>📋 Hata detayı: " . $e->getTraceAsString() . "</pre>";

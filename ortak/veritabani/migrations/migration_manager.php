@@ -9,14 +9,14 @@
  * @date 2025-01-13
  */
 
-require_once __DIR__ . '/../../kutuphaneler/veritabani_sinifi.php';
+require_once __DIR__ . '/../baglanti.php';
 
 class MigrationManager {
     private $db;
     private $migrations_dir;
     
     public function __construct() {
-        $this->db = new VeritabaniSinifi();
+        $this->db = veritabani_baglanti();
         $this->migrations_dir = __DIR__;
         $this->createMigrationsTable();
     }

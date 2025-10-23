@@ -39,20 +39,11 @@ try {
         ORDER BY sektor_adi ASC
     ");
     
-    // Object'leri array'e çevir
-    $sektorler_array = [];
-    foreach ($sektorler as $sektor) {
-        $sektorler_array[] = [
-            'id' => $sektor->id,
-            'sektor_adi' => $sektor->sektor_adi
-        ];
-    }
-    
     // Başarılı yanıt
     echo json_encode([
         'success' => true,
-        'data' => $sektorler_array,
-        'count' => count($sektorler_array),
+        'data' => $sektorler,
+        'count' => count($sektorler),
         'message' => 'Sektörler başarıyla getirildi'
     ], JSON_UNESCAPED_UNICODE);
     
