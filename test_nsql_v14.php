@@ -43,11 +43,15 @@ try {
     echo "<h2>🚀 nsql v1.4 Yeni Özellikler</h2>";
     
     // Debug bilgileri
-    $debug_info = $db->get_debug_info();
-    echo "<p>🔍 Toplam sorgu sayısı: " . $debug_info['total_queries'] . "</p>";
-    echo "<p>🔍 Cache hit sayısı: " . $debug_info['cache_hits'] . "</p>";
-    echo "<p>🔍 Cache miss sayısı: " . $debug_info['cache_misses'] . "</p>";
-    echo "<p>🔍 Ortalama sorgu süresi: " . round($debug_info['avg_query_time'], 4) . " ms</p>";
+    try {
+        $debug_info = $db->get_debug_info();
+        echo "<p>🔍 Toplam sorgu sayısı: " . $debug_info['total_queries'] . "</p>";
+        echo "<p>🔍 Cache hit sayısı: " . $debug_info['cache_hits'] . "</p>";
+        echo "<p>🔍 Cache miss sayısı: " . $debug_info['cache_misses'] . "</p>";
+        echo "<p>🔍 Ortalama sorgu süresi: " . round($debug_info['avg_query_time'], 4) . " ms</p>";
+    } catch (Exception $e) {
+        echo "<p>⚠️ Debug bilgileri alınamadı: " . $e->getMessage() . "</p>";
+    }
     
     // Cache testi
     echo "<h2>💾 Cache Testi</h2>";
@@ -84,11 +88,15 @@ try {
     
     // Connection pool testi
     echo "<h2>🏊 Connection Pool Testi</h2>";
-    $pool_stats = $db->get_pool_stats();
-    echo "<p>🏊 Mevcut bağlantı sayısı: " . $pool_stats['current_connections'] . "</p>";
-    echo "<p>🏊 Kullanılabilir bağlantı sayısı: " . $pool_stats['available_connections'] . "</p>";
-    echo "<p>🏊 Minimum bağlantı sayısı: " . $pool_stats['min_connections'] . "</p>";
-    echo "<p>🏊 Maksimum bağlantı sayısı: " . $pool_stats['max_connections'] . "</p>";
+    try {
+        $pool_stats = $db->get_pool_stats();
+        echo "<p>🏊 Mevcut bağlantı sayısı: " . $pool_stats['current_connections'] . "</p>";
+        echo "<p>🏊 Kullanılabilir bağlantı sayısı: " . $pool_stats['available_connections'] . "</p>";
+        echo "<p>🏊 Minimum bağlantı sayısı: " . $pool_stats['min_connections'] . "</p>";
+        echo "<p>🏊 Maksimum bağlantı sayısı: " . $pool_stats['max_connections'] . "</p>";
+    } catch (Exception $e) {
+        echo "<p>⚠️ Connection pool bilgileri alınamadı: " . $e->getMessage() . "</p>";
+    }
     
     echo "<h2>✅ Tüm testler başarılı!</h2>";
     

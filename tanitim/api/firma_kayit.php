@@ -68,11 +68,28 @@ try {
         ];
         
         // 2. Firma kaydını oluştur
-        $firmaId = $db->insert('firmalar', $firmaData);
+        $firmaSql = "INSERT INTO firmalar (vkn_tc, vergi_dairesi, firma_adi, unvan, telefon, email, adres, il_id, ilce_id, sektor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $firmaParams = [
+            $firmaData['vkn_tc'],
+            $firmaData['vergi_dairesi'],
+            $firmaData['firma_adi'],
+            $firmaData['unvan'],
+            $firmaData['telefon'],
+            $firmaData['email'],
+            $firmaData['adres'],
+            $firmaData['il_id'],
+            $firmaData['ilce_id'],
+            $firmaData['sektor_id']
+        ];
         
-        if (!$firmaId) {
+        $insertResult = $db->insert($firmaSql, $firmaParams);
+        
+        if (!$insertResult) {
             throw new Exception('Firma kaydı oluşturulamadı');
         }
+        
+        // Insert ID'yi al
+        $firmaId = $db->insert_id();
         
         // 3. Kullanıcı verilerini hazırla
         $kullaniciData = [
@@ -86,11 +103,25 @@ try {
         ];
         
         // 4. Kullanıcı kaydını oluştur
-        $kullaniciId = $db->insert('firma_kullanicilari', $kullaniciData);
+        $kullaniciSql = "INSERT INTO firma_kullanicilari (firma_id, kullanici_adi, email, sifre, ad_soyad, telefon, yetki_seviyesi) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $kullaniciParams = [
+            $kullaniciData['firma_id'],
+            $kullaniciData['kullanici_adi'],
+            $kullaniciData['email'],
+            $kullaniciData['sifre'],
+            $kullaniciData['ad_soyad'],
+            $kullaniciData['telefon'],
+            $kullaniciData['yetki_seviyesi']
+        ];
         
-        if (!$kullaniciId) {
+        $kullaniciInsertResult = $db->insert($kullaniciSql, $kullaniciParams);
+        
+        if (!$kullaniciInsertResult) {
             throw new Exception('Kullanıcı kaydı oluşturulamadı');
         }
+        
+        // Kullanıcı ID'yi al
+        $kullaniciId = $db->insert_id();
         
         // 5. Log kaydı oluştur (şimdilik log tablosunu atla)
         // $logData = [
