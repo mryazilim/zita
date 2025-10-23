@@ -14,8 +14,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Orijinal nsql kütüphanesini dahil et
-require_once __DIR__ . '/../kutuphaneler/nsql-real/nsql.php';
+// nsql kütüphanesini dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/nsql.php';
 
 /**
  * Veritabanı bağlantı ayarları
