@@ -6,6 +6,21 @@ if (isset($_SESSION['kullanici_id']) && isset($_SESSION['firma_id'])) {
     header('Location: index.php');
     exit();
 }
+
+// Çıkış mesajları
+$cikis_mesaji = '';
+if (isset($_GET['cikis'])) {
+    switch ($_GET['cikis']) {
+        case 'basarili':
+            $cikis_mesaji = 'Başarıyla çıkış yaptınız.';
+            break;
+        case 'guvenli':
+            $cikis_mesaji = 'Güvenli çıkış yapıldı.';
+            break;
+        default:
+            $cikis_mesaji = 'Oturum sonlandırıldı.';
+    }
+}
 ?>
 <!DOCTYPE html> 
 <html lang="tr" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="dark" data-header-styles="dark" data-menu-styles="dark" data-toggled="close">
@@ -59,6 +74,12 @@ if (isset($_SESSION['kullanici_id']) && isset($_SESSION['firma_id'])) {
                             </div>
                             <div class="card custom-card rectangle2">
                                 <div class="card-body p-5 rectangle3">
+                                    <?php if (!empty($cikis_mesaji)): ?>
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <i class="ri-check-line me-2"></i><?php echo htmlspecialchars($cikis_mesaji); ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php endif; ?>
                                     <p class="h4 fw-semibold mb-2 text-center">Giriş Yap</p>
                                     <p class="mb-4 text-muted op-7 fw-normal text-center">Hoş geldiniz!</p>
                                     <div class="row gy-3">

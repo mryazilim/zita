@@ -7,6 +7,11 @@ if (!isset($_SESSION['kullanici_id']) || !isset($_SESSION['firma_id'])) {
     header('Location: giris.php');
     exit();
 }
+
+// CSRF token oluştur (güvenlik için)
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 ?>
 <!DOCTYPE html> 
 <html lang="tr" dir="ltr" data-nav-layout="vertical" data-theme-mode="dark" data-header-styles="gradient" data-menu-styles="dark">
@@ -489,7 +494,7 @@ if (!isset($_SESSION['kullanici_id']) || !isset($_SESSION['firma_id'])) {
                                 <li><a class="dropdown-item border-bottom" href="mail.html"><i class="fs-13 me-2 bx bx-comment"></i>Message</a></li>
                                 <li><a class="dropdown-item border-bottom" href="mail-settings.html"><i class="fs-13 me-2 bx bx-cog"></i>Ayarlar</a></li>
                                 <li><a class="dropdown-item border-bottom" href="faqs.html"><i class="fs-13 me-2 bx bx-help-circle"></i>Help</a></li>
-                                <li><a class="dropdown-item" href="signin-cover.html"><i class="fs-13 me-2 bx bx-arrow-to-right"></i>Log Out</a></li>
+                                <li><a class="dropdown-item" href="cikis.php?token=<?php echo $_SESSION['csrf_token']; ?>"><i class="fs-13 me-2 bx bx-arrow-to-right"></i>Çıkış Yap</a></li>
                             </ul>
                         </div>
                         <!-- End::header-element -->
