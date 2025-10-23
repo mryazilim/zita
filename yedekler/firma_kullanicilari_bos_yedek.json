@@ -1,0 +1,104 @@
+{
+    "tablo_adi": "firma_kullanicilari",
+    "yedekleme_tarihi": "2025-10-23 18:22:07",
+    "kayit_sayisi": 0,
+    "tablo_yapisi": [
+        {
+            "Field": "id",
+            "Type": "int(11)",
+            "Null": "NO",
+            "Key": "PRI",
+            "Default": null,
+            "Extra": "auto_increment"
+        },
+        {
+            "Field": "firma_id",
+            "Type": "int(11)",
+            "Null": "NO",
+            "Key": "MUL",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "kullanici_adi",
+            "Type": "varchar(50)",
+            "Null": "NO",
+            "Key": "MUL",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "email",
+            "Type": "varchar(100)",
+            "Null": "NO",
+            "Key": "MUL",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "sifre",
+            "Type": "varchar(255)",
+            "Null": "NO",
+            "Key": "",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "ad_soyad",
+            "Type": "varchar(100)",
+            "Null": "NO",
+            "Key": "",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "telefon",
+            "Type": "varchar(20)",
+            "Null": "YES",
+            "Key": "",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "yetki_seviyesi",
+            "Type": "enum('admin','kullanici','goruntuleme')",
+            "Null": "YES",
+            "Key": "",
+            "Default": "kullanici",
+            "Extra": ""
+        },
+        {
+            "Field": "aktif",
+            "Type": "tinyint(1)",
+            "Null": "YES",
+            "Key": "MUL",
+            "Default": "1",
+            "Extra": ""
+        },
+        {
+            "Field": "son_giris_tarihi",
+            "Type": "timestamp",
+            "Null": "YES",
+            "Key": "",
+            "Default": null,
+            "Extra": ""
+        },
+        {
+            "Field": "olusturma_tarihi",
+            "Type": "timestamp",
+            "Null": "YES",
+            "Key": "",
+            "Default": "current_timestamp()",
+            "Extra": ""
+        },
+        {
+            "Field": "guncelleme_tarihi",
+            "Type": "timestamp",
+            "Null": "YES",
+            "Key": "",
+            "Default": "current_timestamp()",
+            "Extra": "on update current_timestamp()"
+        }
+    ],
+    "veriler": []
+}

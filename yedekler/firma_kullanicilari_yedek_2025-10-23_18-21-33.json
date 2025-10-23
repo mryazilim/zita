@@ -1,0 +1,21 @@
+{
+    "tablo_adi": "firma_kullanicilari",
+    "yedekleme_tarihi": "2025-10-23 18:21:33",
+    "kayit_sayisi": 1,
+    "veriler": [
+        {
+            "id": "1",
+            "firma_id": "1",
+            "kullanici_adi": "test@firma.com",
+            "email": "test@firma.com",
+            "sifre": "$2y$12$d.8t2P9p9DsKGncFe79eQ.bELGNxlGvWHLole3NnmS4856LZEmA7m",
+            "ad_soyad": "Test Kullanıcı",
+            "telefon": "05551234567",
+            "yetki_seviyesi": "admin",
+            "aktif": "1",
+            "son_giris_tarihi": null,
+            "olusturma_tarihi": "2025-10-23 21:19:57",
+            "guncelleme_tarihi": "2025-10-23 21:19:57"
+        }
+    ]
+}

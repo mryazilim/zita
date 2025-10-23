@@ -102,7 +102,7 @@ class config
     /**
      * Yapılandırma değerini ayarlar (runtime override)
      */
-    public static function set(string $key, mixed $value): void
+    public static function set(string $key, $value): void
     {
         $key = strtoupper($key);
         self::$config[$key] = $value;

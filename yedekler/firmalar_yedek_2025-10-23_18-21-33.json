@@ -1,0 +1,23 @@
+{
+    "tablo_adi": "firmalar",
+    "yedekleme_tarihi": "2025-10-23 18:21:33",
+    "kayit_sayisi": 1,
+    "veriler": [
+        {
+            "id": "1",
+            "firma_adi": "Test Firma",
+            "unvan": "Test Firma Ltd. Şti.",
+            "vkn_tc": "1234567890",
+            "vergi_dairesi": "Test Vergi Dairesi",
+            "telefon": "05551234567",
+            "email": "test@firma.com",
+            "adres": "Test Adres",
+            "il_id": "1",
+            "ilce_id": "1",
+            "sektor_id": "1",
+            "aktif": "1",
+            "olusturma_tarihi": "2025-10-23 21:19:57",
+            "guncelleme_tarihi": "2025-10-23 21:19:57"
+        }
+    ]
+}
