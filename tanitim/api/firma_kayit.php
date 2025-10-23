@@ -26,8 +26,18 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'OPTIONS
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Veritabanı bağlantısını dahil et
-require_once __DIR__ . '/../../ortak/veritabani/baglanti.php';
+// PDO bağlantısı (nsql yerine)
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=zita_vt;charset=utf8mb4', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Veritabanı bağlantı hatası: ' . $e->getMessage()
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
 try {
     // Sadece POST isteklerini kabul et
@@ -43,8 +53,7 @@ try {
         throw new Exception('Geçersiz JSON verisi');
     }
     
-    // Veritabanı bağlantısını al
-    $db = veritabani_baglanti();
+    // PDO bağlantısı zaten hazır
     
     // Veri doğrulama
     $validation = validateFirmaData($data);
@@ -82,14 +91,15 @@ try {
             $firmaData['sektor_id']
         ];
         
-        $insertResult = $db->insert($firmaSql, $firmaParams);
+        $stmt = $pdo->prepare($firmaSql);
+        $insertResult = $stmt->execute($firmaParams);
         
         if (!$insertResult) {
             throw new Exception('Firma kaydı oluşturulamadı');
         }
         
         // Insert ID'yi al
-        $firmaId = $db->insert_id();
+        $firmaId = $pdo->lastInsertId();
         
         // 3. Kullanıcı verilerini hazırla
         $kullaniciData = [
@@ -114,14 +124,15 @@ try {
             $kullaniciData['yetki_seviyesi']
         ];
         
-        $kullaniciInsertResult = $db->insert($kullaniciSql, $kullaniciParams);
+        $stmt = $pdo->prepare($kullaniciSql);
+        $kullaniciInsertResult = $stmt->execute($kullaniciParams);
         
         if (!$kullaniciInsertResult) {
             throw new Exception('Kullanıcı kaydı oluşturulamadı');
         }
         
         // Kullanıcı ID'yi al
-        $kullaniciId = $db->insert_id();
+        $kullaniciId = $pdo->lastInsertId();
         
         // 5. Log kaydı oluştur (şimdilik log tablosunu atla)
         // $logData = [
