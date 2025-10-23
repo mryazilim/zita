@@ -34,6 +34,32 @@ spl_autoload_register(function ($class) {
     }
 });
 
+// Temel sınıfları yükle
+$core_files = [
+    'config.php',
+    'connection_pool.php'
+];
+
+foreach ($core_files as $core_file) {
+    $core_path = __DIR__ . '/' . $core_file;
+    if (file_exists($core_path)) {
+        require_once $core_path;
+    }
+}
+
+// Security sınıflarını yükle
+$security_files = [
+    'session_manager.php',
+    'query_analyzer.php'
+];
+
+foreach ($security_files as $security_file) {
+    $security_path = __DIR__ . '/security/' . $security_file;
+    if (file_exists($security_path)) {
+        require_once $security_path;
+    }
+}
+
 // Trait dosyalarını manuel olarak yükle
 $trait_files = [
     'cache_trait.php',

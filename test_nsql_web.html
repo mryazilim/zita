@@ -47,24 +47,33 @@
     <script>
         async function testIller() {
             try {
+                console.log('İller API testi başlatılıyor...');
                 const response = await fetch('tanitim/api/iller.php');
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                
                 const text = await response.text();
                 console.log('Raw response:', text);
                 
                 let data;
                 try {
                     data = JSON.parse(text);
+                    console.log('Parsed data:', data);
                 } catch (parseError) {
+                    console.error('JSON Parse Error:', parseError);
                     showResult('İller API Test', { 
                         error: 'JSON Parse Error', 
                         rawResponse: text,
-                        parseError: parseError.message 
+                        parseError: parseError.message,
+                        responseStatus: response.status,
+                        responseHeaders: Object.fromEntries(response.headers.entries())
                     }, false);
                     return;
                 }
                 
                 showResult('İller API Test', data, response.ok);
             } catch (error) {
+                console.error('Fetch Error:', error);
                 showResult('İller API Test', { error: error.message }, false);
             }
         }
