@@ -35,8 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Veritabanı bağlantısını dahil et
-require_once __DIR__ . '/../../ortak/veritabani/baglanti.php';
+// PDO bağlantısı (nsql yerine)
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=zita_vt;charset=utf8mb4', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Veritabanı bağlantı hatası: ' . $e->getMessage()
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
 try {
     // Gelen JSON verisini al
@@ -56,38 +66,50 @@ try {
         }
     }
 
-    // Veritabanı bağlantısını al
-    $db = veritabani_baglanti();
-
     // Kullanıcı adı veya e-posta ile kullanıcıyı bul
-    $kullanici = $db->get_row("
+    $stmt = $pdo->prepare("
         SELECT id, kullanici_adi, email, sifre, ad_soyad, yetki_seviyesi, aktif, son_giris_tarihi
         FROM sistem_kullanicilari 
         WHERE (kullanici_adi = ? OR email = ?) AND aktif = 1
-    ", [$data['kullanici_adi'], $data['kullanici_adi']]);
+    ");
+    $stmt->execute([$data['kullanici_adi'], $data['kullanici_adi']]);
+    $kullanici = $stmt->fetch(PDO::FETCH_OBJ);
 
     if (!$kullanici) {
         throw new Exception('Kullanıcı adı veya şifre hatalı');
     }
 
     // Şifre doğrulama
-    if (!password_verify($data['sifre'], $kullanici['sifre'])) {
+    if (!password_verify($data['sifre'], $kullanici->sifre)) {
         throw new Exception('Kullanıcı adı veya şifre hatalı');
     }
 
+    // Session başlat
+    session_start();
+
     // Giriş başarılı - son giriş tarihini güncelle
-    $db->query("
+    $stmt = $pdo->prepare("
         UPDATE sistem_kullanicilari 
         SET son_giris_tarihi = NOW() 
         WHERE id = ?
-    ", [$kullanici['id']]);
+    ");
+    $stmt->execute([$kullanici->id]);
+
+    // Session verilerini oluştur
+    $_SESSION['kullanici_id'] = $kullanici->id;
+    $_SESSION['firma_id'] = 1; // Sistem kullanıcısı için varsayılan firma ID
+    $_SESSION['kullanici_adi'] = $kullanici->kullanici_adi;
+    $_SESSION['email'] = $kullanici->email;
+    $_SESSION['ad_soyad'] = $kullanici->ad_soyad;
+    $_SESSION['yetki_seviyesi'] = $kullanici->yetki_seviyesi;
+    $_SESSION['giris_zamani'] = time();
 
     // JWT token oluştur (basit token)
     $tokenData = [
-        'user_id' => $kullanici['id'],
-        'kullanici_adi' => $kullanici['kullanici_adi'],
-        'email' => $kullanici['email'],
-        'yetki_seviyesi' => $kullanici['yetki_seviyesi'],
+        'user_id' => $kullanici->id,
+        'kullanici_adi' => $kullanici->kullanici_adi,
+        'email' => $kullanici->email,
+        'yetki_seviyesi' => $kullanici->yetki_seviyesi,
         'iat' => time(),
         'exp' => time() + (24 * 60 * 60) // 24 saat
     ];
@@ -96,7 +118,7 @@ try {
 
     // Log kaydı oluştur
     $logData = [
-        'kullanici_id' => $kullanici['id'],
+        'kullanici_id' => $kullanici->id,
         'kullanici_tipi' => 'sistem',
         'islem' => 'Giriş',
         'detay' => 'Sistem girişi yapıldı',
@@ -105,7 +127,19 @@ try {
     ];
 
     try {
-        $db->insert('log_kayitlari', $logData);
+        $stmt = $pdo->prepare("
+            INSERT INTO log_kayitlari 
+            (kullanici_id, kullanici_tipi, islem, detay, ip_adresi, tarayici, tarih) 
+            VALUES (?, ?, ?, ?, ?, ?, NOW())
+        ");
+        $stmt->execute([
+            $logData['kullanici_id'],
+            $logData['kullanici_tipi'],
+            $logData['islem'],
+            $logData['detay'],
+            $logData['ip_adresi'],
+            $logData['tarayici']
+        ]);
     } catch (Exception $e) {
         // Log hatası kritik değil, devam et
         error_log("Log kaydı oluşturulamadı: " . $e->getMessage());
@@ -118,13 +152,13 @@ try {
         'data' => [
             'token' => $token,
             'user' => [
-                'id' => $kullanici['id'],
-                'kullanici_adi' => $kullanici['kullanici_adi'],
-                'email' => $kullanici['email'],
-                'ad_soyad' => $kullanici['ad_soyad'],
-                'yetki_seviyesi' => $kullanici['yetki_seviyesi']
+                'id' => $kullanici->id,
+                'kullanici_adi' => $kullanici->kullanici_adi,
+                'email' => $kullanici->email,
+                'ad_soyad' => $kullanici->ad_soyad,
+                'yetki_seviyesi' => $kullanici->yetki_seviyesi
             ],
-            'redirect' => 'panel/dashboard/'
+            'redirect' => 'index.php'
         ]
     ], JSON_UNESCAPED_UNICODE);
 
