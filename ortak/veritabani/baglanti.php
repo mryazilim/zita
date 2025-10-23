@@ -18,6 +18,21 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/../kutuphaneler/nsql/src/database/config.php';
 require_once __DIR__ . '/../kutuphaneler/nsql/src/database/connection_pool.php';
 
+// nsql v1.4 config ayarlarını yapılandır
+nsql\database\config::set('db_host', VeritabaniAyarlari::DB_HOST);
+nsql\database\config::set('db_name', VeritabaniAyarlari::DB_NAME);
+nsql\database\config::set('db_user', VeritabaniAyarlari::DB_USER);
+nsql\database\config::set('db_pass', VeritabaniAyarlari::DB_PASS);
+nsql\database\config::set('db_charset', VeritabaniAyarlari::DB_CHARSET);
+nsql\database\config::set('debug_mode', VeritabaniAyarlari::DEBUG_MODE);
+nsql\database\config::set('query_cache_enabled', VeritabaniAyarlari::QUERY_CACHE_ENABLED);
+nsql\database\config::set('statement_cache_limit', VeritabaniAyarlari::STATEMENT_CACHE_LIMIT);
+nsql\database\config::set('query_cache_timeout', VeritabaniAyarlari::QUERY_CACHE_TIMEOUT);
+nsql\database\config::set('auto_adjust_chunk_size', VeritabaniAyarlari::AUTO_ADJUST_CHUNK_SIZE);
+nsql\database\config::set('default_chunk_size', VeritabaniAyarlari::DEFAULT_CHUNK_SIZE);
+nsql\database\config::set('min_connections', 2);
+nsql\database\config::set('max_connections', 10);
+
 // Trait dosyalarını dahil et
 require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/cache_trait.php';
 require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/connection_trait.php';
@@ -82,16 +97,12 @@ class VeritabaniBaglanti {
             VeritabaniAyarlari::DB_NAME,
             VeritabaniAyarlari::DB_USER,
             VeritabaniAyarlari::DB_PASS,
-            VeritabaniAyarlari::DB_CHARSET
+            VeritabaniAyarlari::DB_CHARSET,
+            VeritabaniAyarlari::DEBUG_MODE
         );
             
-            // nsql ayarlarını yapılandır
-            $this->nsql->debug_mode = VeritabaniAyarlari::DEBUG_MODE;
-            $this->nsql->query_cache_enabled = VeritabaniAyarlari::QUERY_CACHE_ENABLED;
-            $this->nsql->statement_cache_limit = VeritabaniAyarlari::STATEMENT_CACHE_LIMIT;
-            $this->nsql->query_cache_timeout = VeritabaniAyarlari::QUERY_CACHE_TIMEOUT;
-            $this->nsql->auto_adjust_chunk_size = VeritabaniAyarlari::AUTO_ADJUST_CHUNK_SIZE;
-            $this->nsql->default_chunk_size = VeritabaniAyarlari::DEFAULT_CHUNK_SIZE;
+            // nsql v1.4 ayarlarını yapılandır (constructor'da otomatik yapılır)
+            // Debug mode ve cache ayarları nsql v1.4'te otomatik olarak yapılandırılır
             
             // Bağlantıyı test et
             $this->nsql->ensure_connection();
