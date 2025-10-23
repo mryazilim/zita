@@ -1,0 +1,386 @@
+/**
+ * Zita Projesi - Giriş Sayfası Özel CSS
+ * 
+ * Tema bazlı özel stiller ve Zita marka renkleri
+ * 
+ * @author Zita Projesi
+ * @version v25.1.0.0
+ * @date 2025-01-13
+ */
+
+/* ===== ZITA MARKA RENKLERİ ===== */
+:root {
+    --zita-primary: #667eea;
+    --zita-primary-dark: #5a6fd8;
+    --zita-secondary: #764ba2;
+    --zita-success: #28a745;
+    --zita-danger: #dc3545;
+    --zita-warning: #ffc107;
+    --zita-info: #17a2b8;
+    --zita-light: #f8f9fa;
+    --zita-dark: #343a40;
+    --zita-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ===== ZITA LOGO STİLLERİ ===== */
+.zita-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--zita-primary);
+    margin-right: 0.5rem;
+}
+
+.logo-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--zita-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+/* ===== SAĞ PANEL LOGO ===== */
+.zita-logo-white {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo-icon-white {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 1rem;
+}
+
+.logo-text-white {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+/* ===== ÖZELLİKLER LİSTESİ ===== */
+.ozellikler-listesi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.ozellik-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.ozellik-item:hover {
+    transform: translateY(-2px);
+}
+
+.ozellik-item i {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ozellik-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: white;
+}
+
+/* ===== FORM STİLLERİ ===== */
+.giris-form .form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.giris-form .form-control:focus {
+    border-color: var(--zita-primary);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.giris-form .form-control.is-invalid {
+    border-color: var(--zita-danger);
+}
+
+.giris-form .form-control.is-valid {
+    border-color: var(--zita-success);
+}
+
+/* ===== GİRİŞ BUTONU ===== */
+.giris-btn {
+    background: var(--zita-gradient);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.giris-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.giris-btn:active {
+    transform: translateY(0);
+}
+
+.giris-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== MESAJ ALANI ===== */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 1rem;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--zita-danger);
+    border-left: 4px solid var(--zita-danger);
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--zita-success);
+    border-left: 4px solid var(--zita-success);
+}
+
+.alert-info {
+    background: rgba(23, 162, 184, 0.1);
+    color: var(--zita-info);
+    border-left: 4px solid var(--zita-info);
+}
+
+/* ===== RESPONSIVE TASARIM ===== */
+@media (max-width: 767.98px) {
+    .ozellikler-listesi {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .ozellik-item {
+        padding: 0.5rem;
+    }
+    
+    .ozellik-item i {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+    }
+    
+    .ozellik-item span {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .logo-text {
+        font-size: 2rem;
+    }
+    
+    .logo-icon {
+        font-size: 2rem;
+    }
+    
+    .giris-btn {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* ===== ANİMASYONLAR ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.giris-form {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.ozellikler-listesi {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+/* ===== LOADING ANİMASYONU ===== */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.ri-loader-4-line {
+    animation: spin 1s linear infinite;
+}
+
+/* ===== FOCUS STATES ===== */
+.form-control:focus,
+.giris-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
+}
+
+/* ===== HOVER EFFECTS ===== */
+.form-control:hover {
+    border-color: var(--zita-primary);
+}
+
+.giris-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4c93 100%);
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .col-xl-6.col-md-6.ps-0 {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* ===== TEMA UYUMLULUĞU ===== */
+/* Tema renklerini override et */
+.btn-primary {
+    background: var(--zita-gradient);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4c93 100%);
+}
+
+.text-primary {
+    color: var(--zita-primary) !important;
+}
+
+/* ===== ÖZEL STİLLER ===== */
+.rectangle2 {
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.rectangle3 {
+    background: var(--zita-gradient);
+    border-radius: 0 15px 15px 0;
+}
+
+/* ===== FORM LABEL İKONLARI ===== */
+.form-label i {
+    color: var(--zita-primary);
+    font-size: 0.9rem;
+}
+
+/* ===== INPUT GROUP BUTON ===== */
+.input-group .btn-light {
+    border-color: #e9ecef;
+    color: #6c757d;
+}
+
+.input-group .btn-light:hover {
+    background-color: var(--zita-primary);
+    border-color: var(--zita-primary);
+    color: white;
+}
+
+/* ===== CHECKBOX STİLLERİ ===== */
+.form-check-input:checked {
+    background-color: var(--zita-primary);
+    border-color: var(--zita-primary);
+}
+
+/* ===== LINK STİLLERİ ===== */
+a.text-primary:hover {
+    color: var(--zita-primary-dark) !important;
+}
+
+/* ===== CARD STİLLERİ ===== */
+.custom-card {
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== PARTİCLE JS ARKA PLAN ===== */
+#particles-js {
+    background: var(--zita-gradient);
+    position: relative;
+}
+
+#particles-js::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}

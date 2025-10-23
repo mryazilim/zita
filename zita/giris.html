@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Description" content="Zita - Dijital Dönüşüm Platformu">
+    <meta name="Author" content="Zita Projesi">
+    <meta name="keywords" content="zita, dijital dönüşüm, ziyaretçi takibi, araç takibi, firma yönetimi">
+    
+    <!-- TITLE -->
+    <title>Zita - Giriş Yap</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="varliklar/resimler/favicon.ico" type="image/x-icon">
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="../zita/tema/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ICONS CSS -->
+    <link href="../zita/tema/assets/css/icons.css" rel="stylesheet">
+
+    <!-- STYLES CSS -->
+    <link href="../zita/tema/assets/css/styles.css" rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
+    <link href="varliklar/css/giris.css" rel="stylesheet">
+
+    <!-- MAIN JS -->
+    <script src="../zita/tema/assets/js/authentication-main.js"></script>
+</head>
+
+<body>
+    <div class="page error-bg" id="particles-js">
+        <!-- Start::error-page -->
+        <div class="error-page">
+            <div class="container">
+                <!-- Start::row-1 -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-md-12 col-sm-10">
+                        <div class="card custom-card rectangle2">
+                            <div class="card-body p-0">
+                                <div class="row">
+                                    <!-- Sol Panel - Giriş Formu -->
+                                    <div class="col-xl-6 col-md-6 pe-sm-0">
+                                        <div class="p-sm-5 p-3">
+                                            <!-- Logo ve Başlık -->
+                                            <div class="text-center mb-4">
+                                                <div class="zita-logo">
+                                                    <i class="ri-dashboard-3-line logo-icon"></i>
+                                                    <h1 class="logo-text">Zita</h1>
+                                                </div>
+                                                <h4 class="fw-semibold mb-2 text-primary">Giriş Yap</h4>
+                                                <p class="mb-3 text-muted op-7 fw-normal">Hoş geldiniz! Hesabınıza giriş yapın</p>
+                                            </div>
+
+                                            <!-- Giriş Formu -->
+                                            <form id="girisForm" class="giris-form">
+                                                <div class="row gy-3 mt-3">
+                                                    <!-- Kullanıcı Adı/E-posta -->
+                                                    <div class="col-xl-12 mt-0">
+                                                        <label for="kullanici_adi" class="form-label text-default">
+                                                            <i class="ri-user-line me-2"></i>Kullanıcı Adı veya E-posta
+                                                        </label>
+                                                        <input type="text" 
+                                                               class="form-control form-control-lg" 
+                                                               id="kullanici_adi" 
+                                                               name="kullanici_adi" 
+                                                               placeholder="Kullanıcı adınızı veya e-posta adresinizi girin"
+                                                               required>
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+
+                                                    <!-- Şifre -->
+                                                    <div class="col-xl-12 mb-3">
+                                                        <label for="sifre" class="form-label text-default d-block">
+                                                            <i class="ri-lock-line me-2"></i>Şifre
+                                                            <a href="#" class="float-end text-primary">Şifremi unuttum?</a>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <input type="password" 
+                                                                   class="form-control form-control-lg" 
+                                                                   id="sifre" 
+                                                                   name="sifre" 
+                                                                   placeholder="Şifrenizi girin"
+                                                                   required>
+                                                            <button class="btn btn-light bg-transparent" 
+                                                                    type="button" 
+                                                                    onclick="createpassword('sifre',this)" 
+                                                                    id="button-addon2">
+                                                                <i class="ri-eye-off-line align-middle"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mt-2">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" 
+                                                                       type="checkbox" 
+                                                                       value="1" 
+                                                                       id="beni_hatirla" 
+                                                                       name="beni_hatirla">
+                                                                <label class="form-check-label text-muted fw-normal" for="beni_hatirla">
+                                                                    Beni hatırla
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+
+                                                    <!-- Giriş Butonu -->
+                                                    <div class="col-xl-12 d-grid mt-3">
+                                                        <button type="submit" class="btn btn-lg btn-primary giris-btn">
+                                                            <span class="btn-text">
+                                                                <i class="ri-login-circle-line me-2"></i>Giriş Yap
+                                                            </span>
+                                                            <span class="btn-loading d-none">
+                                                                <i class="ri-loader-4-line me-2"></i>Giriş yapılıyor...
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Hata/Success Mesajları -->
+                                                <div id="mesajAlani" class="alert d-none mt-3" role="alert"></div>
+                                            </form>
+
+                                            <!-- Alt Bilgiler -->
+                                            <div class="text-center mt-4">
+                                                <p class="fs-12 text-muted mb-0">
+                                                    Hesabınız yok mu? 
+                                                    <a href="#" class="text-primary">Kayıt olun</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sağ Panel - Tanıtım -->
+                                    <div class="col-xl-6 col-md-6 ps-0 text-fixed-white rounded-0 d-none d-md-block">
+                                        <div class="card custom-card mb-0 cover-background overflow-hidden rounded-end rounded-0">
+                                            <div class="card-img-overlay d-flex align-items-center p-0 rounded-0">
+                                                <div class="card-body p-5 rectangle3">
+                                                    <!-- Zita Logo -->
+                                                    <div class="text-center mb-4">
+                                                        <div class="zita-logo-white">
+                                                            <i class="ri-dashboard-3-line logo-icon-white"></i>
+                                                            <h1 class="logo-text-white">Zita</h1>
+                                                        </div>
+                                                    </div>
+
+                                                    <h6 class="mt-4 fs-15 op-9 text-fixed-white">Dijital Dönüşümünüzü Başlatın</h6>
+                                                    
+                                                    <div class="d-flex mt-3">
+                                                        <p class="mb-0 fw-normal fs-14 op-7 text-fixed-white">
+                                                            Firma ziyaretçilerinizi takip edin, araçlarınızı yönetin ve 
+                                                            işletmenizi dijitalleştirin. Tek platform, sınırsız imkan.
+                                                        </p>
+                                                    </div>
+
+                                                    <!-- Özellikler -->
+                                                    <div class="ozellikler-listesi mt-4">
+                                                        <div class="ozellik-item">
+                                                            <i class="ri-user-line"></i>
+                                                            <span>Ziyaretçi Takibi</span>
+                                                        </div>
+                                                        <div class="ozellik-item">
+                                                            <i class="ri-car-line"></i>
+                                                            <span>Araç Yönetimi</span>
+                                                        </div>
+                                                        <div class="ozellik-item">
+                                                            <i class="ri-bar-chart-line"></i>
+                                                            <span>Raporlama</span>
+                                                        </div>
+                                                        <div class="ozellik-item">
+                                                            <i class="ri-smartphone-line"></i>
+                                                            <span>Mobil Uyumlu</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End::row-1 -->
+            </div>
+            <!-- End::error-page -->
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!-- BOOTSTRAP JS -->
+    <script src="../zita/tema/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- SHOW PASSWORD JS -->
+    <script src="../zita/tema/assets/js/show-password.js"></script>
+    
+    <!-- CUSTOM JS -->
+    <script src="varliklar/js/giris.js"></script>
+</body>
+</html>

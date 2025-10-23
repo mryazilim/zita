@@ -1,7 +1,7 @@
 /**
  * Zita Projesi - Giriş Sayfası JavaScript
  * 
- * Modern, kullanıcı dostu giriş sayfası işlevselliği
+ * Tema bazlı giriş sayfası işlevselliği
  * 
  * @author Zita Projesi
  * @version v25.1.0.0
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const girisForm = document.getElementById('girisForm');
     const kullaniciAdiInput = document.getElementById('kullanici_adi');
     const sifreInput = document.getElementById('sifre');
-    const sifreToggle = document.getElementById('sifreToggle');
     const girisBtn = document.querySelector('.giris-btn');
     const btnText = document.querySelector('.btn-text');
     const btnLoading = document.querySelector('.btn-loading');
@@ -35,18 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             message: 'Şifre en az 6 karakter olmalı'
         }
     };
-
-    // Şifre göster/gizle işlevi
-    if (sifreToggle) {
-        sifreToggle.addEventListener('click', function() {
-            const type = sifreInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            sifreInput.setAttribute('type', type);
-            
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-eye');
-            icon.classList.toggle('fa-eye-slash');
-        });
-    }
 
     // Gerçek zamanlı validasyon
     function validateField(fieldName, value) {
@@ -122,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = {
             kullanici_adi: formData.get('kullanici_adi'),
             sifre: formData.get('sifre'),
-            beni_hatirla: formData.get('beni_hatirla') === 'on'
+            beni_hatirla: formData.get('beni_hatirla') === '1'
         };
 
         // Validasyon
@@ -166,16 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 showMessage('Giriş başarılı! Yönlendiriliyorsunuz...', 'success');
                 
                 // Beni hatırla seçeneği
-                if (data.beni_hatirla && result.token) {
-                    localStorage.setItem('zita_token', result.token);
+                if (data.beni_hatirla && result.data.token) {
+                    localStorage.setItem('zita_token', result.data.token);
                     localStorage.setItem('zita_remember', 'true');
-                } else if (result.token) {
-                    sessionStorage.setItem('zita_token', result.token);
+                } else if (result.data.token) {
+                    sessionStorage.setItem('zita_token', result.data.token);
                 }
 
                 // 2 saniye sonra yönlendir
                 setTimeout(() => {
-                    window.location.href = result.redirect || 'panel/dashboard/';
+                    window.location.href = result.data.redirect || 'panel/dashboard/';
                 }, 2000);
             } else {
                 throw new Error(result.message || 'Giriş başarısız');
@@ -323,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Geliştirme modunda console'a fonksiyonları ekle
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         window.clearForm = clearForm;
-        console.log('Giriş sayfası yüklendi. Geliştirme fonksiyonları: clearForm()');
+        console.log('Zita giriş sayfası yüklendi. Geliştirme fonksiyonları: clearForm()');
     }
 });
 
