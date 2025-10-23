@@ -14,6 +14,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// nsql autoloader'ı dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/autoload.php';
+
 // nsql kütüphanesini dahil et
 require_once __DIR__ . '/../kutuphaneler/nsql/nsql.php';
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace nsql\database\traits;
+namespace nsql\database;
 
 use InvalidArgumentException;
 use PDO;

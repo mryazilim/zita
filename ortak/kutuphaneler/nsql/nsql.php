@@ -6,7 +6,7 @@ use Exception;
 use Generator;
 use InvalidArgumentException;
 use nsql\database\security\session_manager;
-use nsql\database\traits\{
+use nsql\database\{
     cache_trait,
     connection_trait,
     debug_trait,
