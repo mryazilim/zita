@@ -1,7 +1,7 @@
 /**
  * Zita Projesi - Giriş Sayfası JavaScript
  * 
- * Tema bazlı giriş sayfası işlevselliği
+ * signin-basic.html tasarımı bazlı işlevsellik
  * 
  * @author Zita Projesi
  * @version v25.1.0.0
