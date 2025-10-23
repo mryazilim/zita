@@ -111,21 +111,21 @@ if (!isset($_SESSION['csrf_token'])) {
                                 </span>
                             </a>
                             <div class="main-header-center  d-none d-lg-block  header-link">
-                                <input type="text" class="form-control form-control-lg" id="typehead" placeholder="Search for results..."
+                                <input type="text" class="form-control form-control-lg" id="typehead" placeholder="Sonuçlar için ara..."
                                     autocomplete="off">
                                 <button type="button"  aria-label="button" class="btn pe-1"><i class="fe fe-search" aria-hidden="true"></i></button>
                                 <div id="headersearch" class="header-search">
                                     <div class="p-3">
                                         <div class="">
-                                            <p class="fw-semibold text-muted mb-2 fs-13">Recent Searches</p>
+                                            <p class="fw-semibold text-muted mb-2 fs-13">Son Aramalar</p>
                                             <div class="ps-2">
-                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>People<span></span></a>
-                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>Pages<span></span></a>
-                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>Articles<span></span></a>
+                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>Kişiler<span></span></a>
+                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>Sayfalar<span></span></a>
+                                                <a  href="javascript:void(0)" class="search-tags"><i class="fe fe-search me-2"></i>Makaleler<span></span></a>
                                             </div>
                                         </div>
                                         <div class="mt-3">
-                                            <p class="fw-semibold text-muted mb-2 fs-13">Apps and pages</p>
+                                            <p class="fw-semibold text-muted mb-2 fs-13">Uygulamalar ve sayfalar</p>
                                             <ul class="ps-2">
                                                 <li class="p-1 d-flex align-items-center text-muted mb-2 search-app">
                                                     <a href="full-calendar.html"><span><i class="bx bx-calendar me-2 fs-14 bg-primary-transparent p-2 rounded-circle"></i>Takvim</span></a>
@@ -134,12 +134,12 @@ if (!isset($_SESSION['csrf_token'])) {
                                                     <a href="mail.html"><span><i class="bx bx-envelope me-2 fs-14 bg-primary-transparent p-2 rounded-circle"></i>E-posta</span></a>
                                                 </li>
                                                 <li class="p-1 d-flex align-items-center text-muted mb-2 search-app">
-                                                    <a href="buttons.html"><span><i class="bx bx-dice-1 me-2 fs-14 bg-primary-transparent p-2 rounded-circle"></i>Buttons</span></a>
+                                                    <a href="buttons.html"><span><i class="bx bx-dice-1 me-2 fs-14 bg-primary-transparent p-2 rounded-circle"></i>Butonlar</span></a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="mt-3">
-                                        <p class="fw-semibold text-muted mb-2 fs-13">Links</p>
+                                        <p class="fw-semibold text-muted mb-2 fs-13">Bağlantılar</p>
                                         <ul class="ps-2">
                                                 <li class="p-1 align-items-center text-muted mb-1 search-app">
                                                         <a href="javascript:void(0)" class="text-primary"><u>http://spruko/spruko.com</u></a>
@@ -491,9 +491,9 @@ if (!isset($_SESSION['csrf_token'])) {
                             <!-- End::header-link|dropdown-toggle -->
                             <ul class="dropdown-menu  border-0 main-header-dropdown  overflow-hidden header-profile-dropdown" aria-labelledby="mainHeaderProfil">
                                 <li><a class="dropdown-item border-bottom" href="profile.html"><i class="fs-13 me-2 bx bx-user"></i>Profil</a></li>
-                                <li><a class="dropdown-item border-bottom" href="mail.html"><i class="fs-13 me-2 bx bx-comment"></i>Message</a></li>
+                                <li><a class="dropdown-item border-bottom" href="mail.html"><i class="fs-13 me-2 bx bx-comment"></i>Mesajlar</a></li>
                                 <li><a class="dropdown-item border-bottom" href="mail-settings.html"><i class="fs-13 me-2 bx bx-cog"></i>Ayarlar</a></li>
-                                <li><a class="dropdown-item border-bottom" href="faqs.html"><i class="fs-13 me-2 bx bx-help-circle"></i>Help</a></li>
+                                <li><a class="dropdown-item border-bottom" href="faqs.html"><i class="fs-13 me-2 bx bx-help-circle"></i>Yardım</a></li>
                                 <li><a class="dropdown-item" href="cikis.php?token=<?php echo $_SESSION['csrf_token']; ?>"><i class="fs-13 me-2 bx bx-arrow-to-right"></i>Çıkış Yap</a></li>
                             </ul>
                         </div>
@@ -2215,8 +2215,8 @@ if (!isset($_SESSION['csrf_token'])) {
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <a href="javascript:void(0)" class="btn btn-sm text-primary text-decoration-underline">View
-                                        all</a>
+                                    <a href="javascript:void(0)" class="btn btn-sm text-primary text-decoration-underline">Tümünü
+                                        Gör</a>
                                 </div>
                             </div>
                         </div>
@@ -2229,13 +2229,13 @@ if (!isset($_SESSION['csrf_token'])) {
             
             <footer class="footer mt-auto py-3 bg-white text-center">
                 <div class="container">
-                    <span class="text-muted"> Copyright © <span id="year"></span> <a
-                            href="javascript:void(0);" class="text-dark fw-semibold">Velvet</a>.
-                        Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
-                            <span class="fw-semibold text-primary text-decoration-underline">Spruko</span>
-                        </a> All
-                        rights
-                        reserved
+                    <span class="text-muted"> Telif Hakkı © <span id="year"></span> <a
+                            href="javascript:void(0);" class="text-dark fw-semibold">Zita</a>.
+                        <span class="bi bi-heart-fill text-danger"></span> ile tasarlandı <a href="javascript:void(0);">
+                            <span class="fw-semibold text-primary text-decoration-underline">Zita Ekibi</span>
+                        </a> tarafından. Tüm
+                        hakları
+                        saklıdır
                     </span>
                 </div>
             </footer>
