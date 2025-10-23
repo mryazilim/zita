@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orijinal nsql Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        button { padding: 10px 20px; margin: 5px; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Orijinal nsql Test Sayfası</h1>
+    
+    <div class="test-section info">
+        <h3>📋 Test Bilgileri</h3>
+        <p>Bu sayfa orijinal nsql kütüphanesinin web üzerinden test edilmesi için oluşturulmuştur.</p>
+        <p><strong>Test URL:</strong> <code>test_nsql_web.php</code></p>
+    </div>
+    
+    <div class="test-section">
+        <h3>🧪 Test Butonları</h3>
+        <button onclick="testIller()">İller API Test</button>
+        <button onclick="testIlceler()">İlçeler API Test</button>
+        <button onclick="testSektorler()">Sektörler API Test</button>
+        <button onclick="testFirmaKayit()">Firma Kayıt API Test</button>
+    </div>
+    
+    <div id="results" class="test-section">
+        <h3>📊 Test Sonuçları</h3>
+        <p>Test sonuçları burada görünecek...</p>
+    </div>
+    
+    <div class="test-section info">
+        <h3>🔗 Direkt Test Linkleri</h3>
+        <p><a href="test_nsql_web.php" target="_blank">📄 PHP Test Sayfası</a></p>
+        <p><a href="tanitim/api/iller.php" target="_blank">🏙️ İller API</a></p>
+        <p><a href="tanitim/api/sektorler.php" target="_blank">🏢 Sektörler API</a></p>
+    </div>
+
+    <script>
+        async function testIller() {
+            try {
+                const response = await fetch('tanitim/api/iller.php');
+                const data = await response.json();
+                showResult('İller API Test', data, response.ok);
+            } catch (error) {
+                showResult('İller API Test', { error: error.message }, false);
+            }
+        }
+        
+        async function testIlceler() {
+            try {
+                const response = await fetch('tanitim/api/ilceler.php?il_id=1');
+                const data = await response.json();
+                showResult('İlçeler API Test', data, response.ok);
+            } catch (error) {
+                showResult('İlçeler API Test', { error: error.message }, false);
+            }
+        }
+        
+        async function testSektorler() {
+            try {
+                const response = await fetch('tanitim/api/sektorler.php');
+                const data = await response.json();
+                showResult('Sektörler API Test', data, response.ok);
+            } catch (error) {
+                showResult('Sektörler API Test', { error: error.message }, false);
+            }
+        }
+        
+        async function testFirmaKayit() {
+            const testData = {
+                vknTc: '1234567890',
+                vergiDairesi: 'Test Vergi Dairesi',
+                firmaAdi: 'Test Firma',
+                unvan: 'Test Firma Ltd. Şti.',
+                telefon: '05551234567',
+                email: 'test@firma.com',
+                adres: 'Test Adres',
+                isimSoyisim: 'Test Kullanıcı',
+                il: '1',
+                ilce: '1',
+                sifre: '123456',
+                sifreTekrar: '123456',
+                sektor: '1'
+            };
+            
+            try {
+                const response = await fetch('tanitim/api/firma_kayit.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(testData)
+                });
+                const data = await response.json();
+                showResult('Firma Kayıt API Test', data, response.ok);
+            } catch (error) {
+                showResult('Firma Kayıt API Test', { error: error.message }, false);
+            }
+        }
+        
+        function showResult(testName, data, success) {
+            const resultsDiv = document.getElementById('results');
+            const resultClass = success ? 'success' : 'error';
+            const status = success ? '✅ Başarılı' : '❌ Hata';
+            
+            resultsDiv.innerHTML = `
+                <h3>📊 Test Sonuçları</h3>
+                <div class="test-section ${resultClass}">
+                    <h4>${testName} - ${status}</h4>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

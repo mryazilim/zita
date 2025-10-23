@@ -14,8 +14,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// nsql-enhanced kütüphanesini dahil et
-require_once __DIR__ . '/../kutuphaneler/nsql-enhanced.php';
+// Orijinal nsql kütüphanesini dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql-real/nsql.php';
 
 /**
  * Veritabanı bağlantı ayarları
@@ -60,15 +60,15 @@ class VeritabaniBaglanti {
     private function __construct() {
         try {
             // nsql-enhanced kütüphanesini başlat
-            $this->nsql = new nsql_enhanced(
-                VeritabaniAyarlari::DB_HOST,
-                VeritabaniAyarlari::DB_NAME,
-                VeritabaniAyarlari::DB_USER,
-                VeritabaniAyarlari::DB_PASS,
-                VeritabaniAyarlari::DB_CHARSET
-            );
+        $this->nsql = new nsql\database\nsql(
+            VeritabaniAyarlari::DB_HOST,
+            VeritabaniAyarlari::DB_NAME,
+            VeritabaniAyarlari::DB_USER,
+            VeritabaniAyarlari::DB_PASS,
+            VeritabaniAyarlari::DB_CHARSET
+        );
             
-            // nsql-enhanced ayarlarını yapılandır
+            // nsql ayarlarını yapılandır
             $this->nsql->debug_mode = VeritabaniAyarlari::DEBUG_MODE;
             $this->nsql->query_cache_enabled = VeritabaniAyarlari::QUERY_CACHE_ENABLED;
             $this->nsql->statement_cache_limit = VeritabaniAyarlari::STATEMENT_CACHE_LIMIT;
@@ -87,7 +87,9 @@ class VeritabaniBaglanti {
     }
     
     /**
-     * Veritabanı sınıfı instance'ını döndür
+     * nsql instance'ını döndür
+     * 
+     * @return nsql\database\nsql
      */
     public function getNsql() {
         return $this->nsql;
@@ -118,7 +120,7 @@ class VeritabaniBaglanti {
 /**
  * Global veritabanı bağlantı fonksiyonu
  * 
- * @return nsql_enhanced
+ * @return nsql\database\nsql
  */
 function veritabani_baglanti() {
     return VeritabaniBaglanti::getInstance()->getNsql();
