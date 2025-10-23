@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 2 saniye sonra yönlendir
                 setTimeout(() => {
-                    window.location.href = result.data.redirect || 'panel/dashboard/';
+                    window.location.href = result.data.redirect || 'index.php';
                 }, 2000);
             } else {
                 throw new Error(result.message || 'Giriş başarısız');
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
-                    window.location.href = 'panel/dashboard/';
+                    window.location.href = 'index.php';
                 } else {
                     // Token geçersizse temizle
                     localStorage.removeItem('zita_token');

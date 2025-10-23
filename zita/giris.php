@@ -1,3 +1,12 @@
+<?php
+// Session kontrolü - zaten giriş yapmışsa ana sayfaya yönlendir
+session_start();
+
+if (isset($_SESSION['kullanici_id']) && isset($_SESSION['firma_id'])) {
+    header('Location: index.php');
+    exit();
+}
+?>
 <!DOCTYPE html> 
 <html lang="tr" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="dark" data-header-styles="dark" data-menu-styles="dark" data-toggled="close">
 
