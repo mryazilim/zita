@@ -47,4 +47,5 @@ echo "<p><a href='tanitim/api/iller.php' target='_blank'>İller API</a></p>";
 echo "<p><a href='tanitim/api/sektorler.php' target='_blank'>Sektörler API</a></p>";
 echo "<p><a href='tanitim/api/ilceler.php?il_id=1' target='_blank'>İlçeler API</a></p>";
 echo "<p><a href='test_nsql_web.html' target='_blank'>Test Sayfası</a></p>";
+echo "<p><a href='ortak/kutuphaneler/nsql/README.md' target='_blank'>nsql v1.4 Dokümantasyonu</a></p>";
 ?>

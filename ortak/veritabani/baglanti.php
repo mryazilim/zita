@@ -14,11 +14,25 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// nsql autoloader'ı dahil et
-require_once __DIR__ . '/../kutuphaneler/nsql/autoload.php';
+// nsql v1.4 autoloader'ını dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/config.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/connection_pool.php';
 
-// nsql kütüphanesini dahil et
-require_once __DIR__ . '/../kutuphaneler/nsql/nsql.php';
+// Trait dosyalarını dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/cache_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/connection_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/debug_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/query_analyzer_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/query_parameter_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/statement_cache_trait.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/traits/transaction_trait.php';
+
+// Security sınıflarını dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/security/session_manager.php';
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/security/query_analyzer.php';
+
+// Ana nsql sınıfını dahil et
+require_once __DIR__ . '/../kutuphaneler/nsql/src/database/nsql.php';
 
 /**
  * Veritabanı bağlantı ayarları
