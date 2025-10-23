@@ -1,7 +1,7 @@
 /**
  * Zita Projesi - Giriş Sayfası JavaScript
  * 
- * signin-basic.html tasarımı bazlı işlevsellik
+ * Giriş formu işlevselliği ve API entegrasyonu
  * 
  * @author Zita Projesi
  * @version v25.1.0.0
@@ -10,25 +10,24 @@
 
 // DOM yüklendiğinde çalışacak fonksiyonlar
 document.addEventListener('DOMContentLoaded', function() {
-    // Giriş formu elementlerini al
-    const girisForm = document.getElementById('girisForm');
-    const kullaniciAdiInput = document.getElementById('kullanici_adi');
-    const sifreInput = document.getElementById('sifre');
-    const girisBtn = document.querySelector('.giris-btn');
-    const btnText = document.querySelector('.btn-text');
-    const btnLoading = document.querySelector('.btn-loading');
-    const mesajAlani = document.getElementById('mesajAlani');
-    const beniHatirlaCheckbox = document.getElementById('beni_hatirla');
+    // Form elementlerini al
+    const signinForm = document.querySelector('.card-body');
+    const usernameInput = document.getElementById('signin-username');
+    const passwordInput = document.getElementById('signin-password');
+    const rememberCheckbox = document.getElementById('defaultCheck1');
+    const signinBtn = document.getElementById('girisBtn');
+    const forgetPasswordLink = document.querySelector('a[href="reset-password-basic.html"]');
+    const signupLink = document.querySelector('a[href="signup-basic.html"]');
 
     // Form validasyon kuralları
     const validationRules = {
-        kullanici_adi: {
+        username: {
             required: true,
             minLength: 3,
             pattern: /^[a-zA-Z0-9@._-]+$/,
-            message: 'Kullanıcı adı en az 3 karakter olmalı ve sadece harf, rakam, @, ., _, - içermeli'
+            message: 'Kullanıcı adı en az 3 karakter olmalı'
         },
-        sifre: {
+        password: {
             required: true,
             minLength: 6,
             message: 'Şifre en az 6 karakter olmalı'
@@ -40,17 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const rules = validationRules[fieldName];
         if (!rules) return true;
 
-        // Gerekli alan kontrolü
         if (rules.required && (!value || value.trim() === '')) {
-            return `${fieldName === 'kullanici_adi' ? 'Kullanıcı adı' : 'Şifre'} gereklidir`;
+            return `${fieldName === 'username' ? 'Kullanıcı adı' : 'Şifre'} gereklidir`;
         }
 
-        // Minimum uzunluk kontrolü
         if (rules.minLength && value.length < rules.minLength) {
             return rules.message;
         }
 
-        // Pattern kontrolü
         if (rules.pattern && !rules.pattern.test(value)) {
             return rules.message;
         }
@@ -63,40 +59,58 @@ document.addEventListener('DOMContentLoaded', function() {
         field.classList.add('is-invalid');
         field.classList.remove('is-valid');
         
-        const feedback = field.parentNode.querySelector('.invalid-feedback');
-        if (feedback) {
-            feedback.textContent = message;
+        // Hata mesajı için div oluştur
+        let feedback = field.parentNode.querySelector('.invalid-feedback');
+        if (!feedback) {
+            feedback = document.createElement('div');
+            feedback.className = 'invalid-feedback';
+            field.parentNode.appendChild(feedback);
         }
+        feedback.textContent = message;
     }
 
     // Alan başarı gösterimi
     function showFieldSuccess(field) {
         field.classList.add('is-valid');
         field.classList.remove('is-invalid');
+        
+        const feedback = field.parentNode.querySelector('.invalid-feedback');
+        if (feedback) {
+            feedback.textContent = '';
+        }
     }
 
     // Mesaj gösterimi
     function showMessage(message, type = 'danger') {
-        mesajAlani.className = `alert alert-${type}`;
-        mesajAlani.textContent = message;
-        mesajAlani.classList.remove('d-none');
+        // Mevcut mesajı kaldır
+        const existingAlert = document.querySelector('.alert');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+
+        // Yeni mesaj oluştur
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert alert-${type} mt-3`;
+        alertDiv.textContent = message;
+        
+        // Form sonrasına ekle
+        const form = document.querySelector('.row.gy-3');
+        form.parentNode.insertBefore(alertDiv, form.nextSibling);
         
         // 5 saniye sonra mesajı gizle
         setTimeout(() => {
-            mesajAlani.classList.add('d-none');
+            alertDiv.remove();
         }, 5000);
     }
 
     // Loading durumu
     function setLoading(loading) {
         if (loading) {
-            girisBtn.disabled = true;
-            btnText.classList.add('d-none');
-            btnLoading.classList.remove('d-none');
+            signinBtn.disabled = true;
+            signinBtn.innerHTML = '<i class="ri-loader-4-line me-2"></i>Giriş yapılıyor...';
         } else {
-            girisBtn.disabled = false;
-            btnText.classList.remove('d-none');
-            btnLoading.classList.add('d-none');
+            signinBtn.disabled = false;
+            signinBtn.innerHTML = 'Giriş Yap';
         }
     }
 
@@ -105,28 +119,32 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         
         // Form verilerini al
-        const formData = new FormData(girisForm);
         const data = {
-            kullanici_adi: formData.get('kullanici_adi'),
-            sifre: formData.get('sifre'),
-            beni_hatirla: formData.get('beni_hatirla') === '1'
+            kullanici_adi: usernameInput.value.trim(),
+            sifre: passwordInput.value,
+            beni_hatirla: rememberCheckbox.checked
         };
 
         // Validasyon
         let isFormValid = true;
         
-        Object.keys(validationRules).forEach(fieldName => {
-            const field = document.getElementById(fieldName);
-            const value = data[fieldName];
-            const validation = validateField(fieldName, value);
-            
-            if (validation !== true) {
-                showFieldError(field, validation);
-                isFormValid = false;
-            } else {
-                showFieldSuccess(field);
-            }
-        });
+        // Kullanıcı adı validasyonu
+        const usernameValidation = validateField('username', data.kullanici_adi);
+        if (usernameValidation !== true) {
+            showFieldError(usernameInput, usernameValidation);
+            isFormValid = false;
+        } else {
+            showFieldSuccess(usernameInput);
+        }
+
+        // Şifre validasyonu
+        const passwordValidation = validateField('password', data.sifre);
+        if (passwordValidation !== true) {
+            showFieldError(passwordInput, passwordValidation);
+            isFormValid = false;
+        } else {
+            showFieldSuccess(passwordInput);
+        }
 
         if (!isFormValid) {
             showMessage('Lütfen tüm alanları doğru şekilde doldurun.');
@@ -135,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Loading durumunu başlat
         setLoading(true);
-        mesajAlani.classList.add('d-none');
 
         try {
             // API'ye giriş isteği gönder
@@ -177,9 +194,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Gerçek zamanlı validasyon event listener'ları
-    kullaniciAdiInput.addEventListener('blur', function() {
+    usernameInput.addEventListener('blur', function() {
         const value = this.value.trim();
-        const validation = validateField('kullanici_adi', value);
+        const validation = validateField('username', value);
         
         if (validation !== true) {
             showFieldError(this, validation);
@@ -188,9 +205,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    sifreInput.addEventListener('blur', function() {
+    passwordInput.addEventListener('blur', function() {
         const value = this.value;
-        const validation = validateField('sifre', value);
+        const validation = validateField('password', value);
         
         if (validation !== true) {
             showFieldError(this, validation);
@@ -200,25 +217,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Input temizleme
-    kullaniciAdiInput.addEventListener('input', function() {
+    usernameInput.addEventListener('input', function() {
         if (this.classList.contains('is-invalid')) {
             this.classList.remove('is-invalid');
         }
     });
 
-    sifreInput.addEventListener('input', function() {
+    passwordInput.addEventListener('input', function() {
         if (this.classList.contains('is-invalid')) {
             this.classList.remove('is-invalid');
         }
     });
 
     // Form submit event listener
-    girisForm.addEventListener('submit', handleFormSubmit);
+    signinBtn.addEventListener('click', handleFormSubmit);
 
     // Enter tuşu ile form gönderimi
     document.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter' && !girisBtn.disabled) {
-            girisForm.dispatchEvent(new Event('submit'));
+        if (event.key === 'Enter' && !signinBtn.disabled) {
+            handleFormSubmit(event);
         }
     });
 
@@ -250,13 +267,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     sessionStorage.removeItem('zita_token');
                     localStorage.removeItem('zita_remember');
                     setLoading(false);
-                    mesajAlani.classList.add('d-none');
                 }
             })
             .catch(error => {
                 console.error('Token doğrulama hatası:', error);
                 setLoading(false);
-                mesajAlani.classList.add('d-none');
             });
         }
     }
@@ -269,7 +284,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const isMobile = window.innerWidth < 768;
         
         if (isMobile) {
-            // Mobil cihazlarda ek optimizasyonlar
             document.body.classList.add('mobile-view');
         } else {
             document.body.classList.remove('mobile-view');
@@ -284,26 +298,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(event) {
         // Ctrl + Enter ile form gönderimi
         if (event.ctrlKey && event.key === 'Enter') {
-            if (!girisBtn.disabled) {
-                girisForm.dispatchEvent(new Event('submit'));
+            if (!signinBtn.disabled) {
+                handleFormSubmit(event);
             }
         }
         
         // Escape ile formu temizle
         if (event.key === 'Escape') {
-            girisForm.reset();
-            mesajAlani.classList.add('d-none');
-            kullaniciAdiInput.classList.remove('is-invalid', 'is-valid');
-            sifreInput.classList.remove('is-invalid', 'is-valid');
+            usernameInput.value = '';
+            passwordInput.value = '';
+            rememberCheckbox.checked = false;
+            usernameInput.classList.remove('is-invalid', 'is-valid');
+            passwordInput.classList.remove('is-invalid', 'is-valid');
         }
     });
 
     // Form temizleme butonu (geliştirme için)
     function clearForm() {
-        girisForm.reset();
-        mesajAlani.classList.add('d-none');
-        kullaniciAdiInput.classList.remove('is-invalid', 'is-valid');
-        sifreInput.classList.remove('is-invalid', 'is-valid');
+        usernameInput.value = '';
+        passwordInput.value = '';
+        rememberCheckbox.checked = false;
+        usernameInput.classList.remove('is-invalid', 'is-valid');
+        passwordInput.classList.remove('is-invalid', 'is-valid');
         setLoading(false);
     }
 
