@@ -47,11 +47,21 @@ try {
         ORDER BY ilce_adi ASC
     ", [$il_id]);
     
+    // Object'leri array'e çevir
+    $ilceler_array = [];
+    foreach ($ilceler as $ilce) {
+        $ilceler_array[] = [
+            'id' => $ilce->id,
+            'ilce_adi' => $ilce->ilce_adi,
+            'il_id' => $ilce->il_id
+        ];
+    }
+    
     // Başarılı yanıt
     echo json_encode([
         'success' => true,
-        'data' => $ilceler,
-        'count' => count($ilceler),
+        'data' => $ilceler_array,
+        'count' => count($ilceler_array),
         'il_id' => $il_id,
         'message' => 'İlçeler başarıyla getirildi'
     ], JSON_UNESCAPED_UNICODE);

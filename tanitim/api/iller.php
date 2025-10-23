@@ -35,11 +35,21 @@ try {
     // İlleri getir
     $iller = $db->get_results("SELECT id, il_adi, plaka_kodu FROM iller ORDER BY il_adi ASC");
     
+    // Object'leri array'e çevir
+    $iller_array = [];
+    foreach ($iller as $il) {
+        $iller_array[] = [
+            'id' => $il->id,
+            'il_adi' => $il->il_adi,
+            'plaka_kodu' => $il->plaka_kodu
+        ];
+    }
+    
     // Başarılı yanıt
     echo json_encode([
         'success' => true,
-        'data' => $iller,
-        'count' => count($iller),
+        'data' => $iller_array,
+        'count' => count($iller_array),
         'message' => 'İller başarıyla getirildi'
     ], JSON_UNESCAPED_UNICODE);
     
