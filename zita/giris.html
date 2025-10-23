@@ -1,34 +1,34 @@
-<!DOCTYPE html>
-<html lang="tr" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<!DOCTYPE html> 
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-    <!-- Meta Data -->
-    <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Description" content="Zita - Dijital Dönüşüm Platformu">
-    <meta name="Author" content="Zita Projesi">
-    <meta name="keywords" content="zita, dijital dönüşüm, ziyaretçi takibi, araç takibi, firma yönetimi">
-    
-    <!-- TITLE -->
-    <title>Zita - Giriş Yap</title>
 
-    <!-- FAVICON -->
-    <link rel="icon" href="varliklar/images/brand-logos/fav.ico" type="image/x-icon">
+        <!-- Meta Data -->
+		<meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="Description" content="Velvet - Codeigniter Bootstrap5 Responsive Admin & Dashboard Template">
+        <meta name="Author" content="Spruko Technologies Private Limited">
+        <meta name="keywords" content="admin, admin panel, admin dashboard, admin panel template, bootstrap admin template, bootstrap 5 dashboard, admin panel bootstrap, codeigniter, dashboard, template dashboard, bootstrap admin dashboard, codeigniter 4, framework codeigniter">
+        
+        <!-- TITLE -->
+		<title> Velvet - Codeigniter Bootstrap5 Admin &amp; Dashboard Template </title>
 
-    <!-- BOOTSTRAP CSS -->
-    <link id="style" href="varliklar/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- FAVICON -->
+        <link rel="icon" href="varliklar/images/brand-logos/fav.ico" type="image/x-icon">
 
-    <!-- ICONS CSS -->
-    <link href="varliklar/css/icons.css" rel="stylesheet">
+        <!-- BOOTSTRAP CSS -->
+        <link  id="style" href="varliklar/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- STYLES CSS -->
-    <link href="varliklar/css/styles.css" rel="stylesheet">
+        <!-- ICONS CSS -->
+        <link href="varliklar/css/icons.css" rel="stylesheet">
 
-    <!-- CUSTOM CSS -->
-    <link href="varliklar/css/giris.css" rel="stylesheet">
+        <!-- STYLES CSS -->
+        <link href="varliklar/css/styles.css" rel="stylesheet">
 
-    <!-- MAIN JS -->
-    <script src="varliklar/js/authentication-main.js"></script>
+        <!-- MAIN JS -->
+        <script src="varliklar/js/authentication-main.js"></script>
 
 
 	</head>
@@ -43,109 +43,55 @@
                 <div class="container">
                     <div class="row justify-content-center align-items-center authentication authentication-basic h-100">
                         <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
-                            <!-- Zita Logo -->
                             <div class="my-5 d-flex justify-content-center">
                                 <a href="index.html">
-                                    <div class="zita-logo">
-                                        <i class="ri-dashboard-3-line logo-icon"></i>
-                                        <h1 class="logo-text">Zita</h1>
-                                    </div>
+                                    <img src="varliklar/images/brand-logos/desktop-logo.png" alt="logo" class="desktop-logo">
+                                    <img src="varliklar/images/brand-logos/desktop-dark.png" alt="logo" class="desktop-dark">
                                 </a>
                             </div>
                             <div class="card custom-card rectangle2">
                                 <div class="card-body p-5 rectangle3">
-                                    <p class="h4 fw-semibold mb-2 text-center">Zita'ya Hoş Geldiniz</p>
-                                    <p class="mb-4 text-muted op-7 fw-normal text-center">Dijital dönüşüm platformunuza giriş yapın</p>
-                                    
-                                    <!-- Giriş Formu -->
-                                    <form id="girisForm" class="giris-form">
-                                        <div class="row gy-3">
-                                            <!-- Kullanıcı Adı/E-posta -->
-                                            <div class="col-xl-12">
-                                                <label for="kullanici_adi" class="form-label text-default">
-                                                    <i class="ri-user-line me-2"></i>Kullanıcı Adı veya E-posta
-                                                </label>
-                                                <input type="text" 
-                                                       class="form-control form-control-lg" 
-                                                       id="kullanici_adi" 
-                                                       name="kullanici_adi" 
-                                                       placeholder="admin veya admin@zita.com"
-                                                       required>
-                                                <div class="invalid-feedback"></div>
+                                    <p class="h4 fw-semibold mb-2 text-center">Sign In</p>
+                                    <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome back Jhon !</p>
+                                    <div class="row gy-3">
+                                        <div class="col-xl-12">
+                                            <label for="signin-username" class="form-label text-default">User Name</label>
+                                            <input type="text" class="form-control form-control-lg" id="signin-username" placeholder="user name">
+                                        </div>
+                                        <div class="col-xl-12 mb-2">
+                                            <label for="signin-password" class="form-label text-default d-block">Password<a href="reset-password-basic.html" class="float-end text-primary">Forget password ?</a></label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-lg" id="signin-password" placeholder="password">
+                                                <button class="btn btn-light bg-transparent" type="button" onclick="createpassword('signin-password',this)" id="button-addon2"><i class="ri-eye-off-line align-middle"></i></button>
                                             </div>
-                                            
-                                            <!-- Şifre -->
-                                            <div class="col-xl-12 mb-2">
-                                                <label for="sifre" class="form-label text-default d-block">
-                                                    <i class="ri-lock-line me-2"></i>Şifre
-                                                    <a href="#" class="float-end text-primary">Şifremi unuttum?</a>
-                                                </label>
-                                                <div class="input-group">
-                                                    <input type="password" 
-                                                           class="form-control form-control-lg" 
-                                                           id="sifre" 
-                                                           name="sifre" 
-                                                           placeholder="admin123"
-                                                           required>
-                                                    <button class="btn btn-light bg-transparent" 
-                                                            type="button" 
-                                                            onclick="createpassword('sifre',this)" 
-                                                            id="button-addon2">
-                                                        <i class="ri-eye-off-line align-middle"></i>
-                                                    </button>
+                                            <div class="mt-2">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                    <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
+                                                        Remember password ?
+                                                    </label>
                                                 </div>
-                                                <div class="mt-2">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" 
-                                                               type="checkbox" 
-                                                               value="1" 
-                                                               id="beni_hatirla" 
-                                                               name="beni_hatirla">
-                                                        <label class="form-check-label text-muted fw-normal" for="beni_hatirla">
-                                                            Beni hatırla
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="invalid-feedback"></div>
-                                            </div>
-                                            
-                                            <!-- Giriş Butonu -->
-                                            <div class="col-xl-12 d-grid mt-2">
-                                                <button type="submit" class="btn btn-lg btn-primary giris-btn">
-                                                    <span class="btn-text">
-                                                        <i class="ri-login-circle-line me-2"></i>Zita'ya Giriş Yap
-                                                    </span>
-                                                    <span class="btn-loading d-none">
-                                                        <i class="ri-loader-4-line me-2"></i>Giriş yapılıyor...
-                                                    </span>
-                                                </button>
                                             </div>
                                         </div>
-                                        
-                                        <!-- Hata/Success Mesajları -->
-                                        <div id="mesajAlani" class="alert d-none mt-3" role="alert"></div>
-                                    </form>
-                                    <!-- Alt Bilgiler -->
-                                    <div class="text-center">
-                                        <p class="fs-12 text-muted mt-3">
-                                            Zita platformuna yeni misiniz? 
-                                            <a href="#" class="text-primary">Firma kaydı yapın</a>
-                                        </p>
+                                        <div class="col-xl-12 d-grid mt-2">
+                                            <a href="index.html" class="btn btn-lg btn-primary">Sign In</a>
+                                        </div>
                                     </div>
-                                    
-                                    <!-- Sosyal Medya Girişi -->
+                                    <div class="text-center">
+                                        <p class="fs-12 text-muted mt-3">Dont have an account? <a href="signup-basic.html" class="text-primary">Sign Up</a></p>
+                                    </div>
                                     <div class="text-center my-3 authentication-barrier">
-                                        <span>VEYA</span>
+                                        <span>OR</span>
                                     </div>
                                     <div class="btn-list text-center">
                                         <button class="btn btn-icon btn-light btn-wave waves-effect waves-light">
-                                            <i class="ri-facebook-line fw-bold"></i>
+                                            <i class="ri-facebook-line fw-bold "></i>
                                         </button>
-                                        <button class="btn btn-icon btn-light btn-wave waves-effect waves-light">
-                                            <i class="ri-google-line fw-bold"></i>
+                                        <button class="btn btn-icon btn-light  btn-wave waves-effect waves-light">
+                                            <i class="ri-google-line fw-bold "></i>
                                         </button>
-                                        <button class="btn btn-icon btn-light btn-wave waves-effect waves-light">
-                                            <i class="ri-twitter-line fw-bold"></i>
+                                        <button class="btn btn-icon btn-light  btn-wave waves-effect waves-light">
+                                            <i class="ri-twitter-line fw-bold "></i>
                                         </button>
                                     </div>
                                 </div>
@@ -160,14 +106,15 @@
         
         <!-- SCRIPTS -->
 
-    <!-- BOOTSTRAP JS -->
-    <script src="varliklar/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- SHOW PASSWORD JS -->
-    <script src="varliklar/js/show-password.js"></script>
-    
-    <!-- CUSTOM JS -->
-    <script src="varliklar/js/giris.js"></script>
+        <!-- BOOTSTRAP JS -->
+        <script src="varliklar/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        
+        <!-- SHOW PASSWORD JS -->
+        <script src="varliklar/js/show-password.js"></script>
+
+
+        <!-- END SCRIPTS -->
 
 	</body>
 </html>
